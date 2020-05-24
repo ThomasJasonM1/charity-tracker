@@ -11,6 +11,10 @@ const useStyles = makeStyles({
     },
   });
 
+  const onView = ()=> {
+
+  }
+
 const CharityCard = (props) => {
     const classes = useStyles();
 
@@ -32,7 +36,7 @@ const CharityCard = (props) => {
                     </Typography>
                     </CardContent>
                     <CardActions>
-                    <Button size="small" color="primary">
+                    <Button onClick={onView} size="small" color="primary">
                       View
                     </Button>
                     <Button size="small" color="primary">
