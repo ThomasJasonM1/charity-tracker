@@ -23,9 +23,7 @@ class Home extends Component {
             {this.state.charitys.map((charity, index) => {
                 return <CharityCard
                 key={index}
-                name={charity.name}
-                image={charity.image}
-                about={charity.about}
+                charity={charity}
                 />
             })}
             </Grid>

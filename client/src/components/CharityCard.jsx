@@ -11,12 +11,9 @@ const useStyles = makeStyles({
     },
   });
 
-  const onView = ()=> {
-
-  }
-
 const CharityCard = (props) => {
     const classes = useStyles();
+    const {name, image, about} = props.charity
 
     return (
         <>
@@ -24,19 +21,19 @@ const CharityCard = (props) => {
                 <Card className={classes.root}>
                     <CardMedia 
                         className={classes.media}
-                        image={props.image}
-                        title={props.name}
+                        image={image}
+                        title={name}
                     />
                     <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                      {props.name}
+                      {name}
                     </Typography>
                     <Typography>
-                      {props.about}
+                      {about}
                     </Typography>
                     </CardContent>
                     <CardActions>
-                    <Button onClick={onView} size="small" color="primary">
+                    <Button size="small" color="primary">
                       View
                     </Button>
                     <Button size="small" color="primary">
