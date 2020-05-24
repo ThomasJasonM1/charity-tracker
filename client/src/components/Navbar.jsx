@@ -7,7 +7,7 @@ const Navbar = () => {
       <AppBar position="static">
         <Toolbar>
           <Button>
-            Admin Login
+            Admin Login (icon instead?)
           </Button>
         </Toolbar>
       </AppBar>
