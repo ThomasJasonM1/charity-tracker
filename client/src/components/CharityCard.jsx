@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Card, CardMedia, CardContent, Typography } from "@material-ui/core";
+import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button } from "@material-ui/core";
 
 const useStyles = makeStyles({
     root: {
@@ -31,6 +31,14 @@ const CharityCard = (props) => {
                       {props.about}
                     </Typography>
                     </CardContent>
+                    <CardActions>
+                    <Button size="small" color="primary">
+                      View
+                    </Button>
+                    <Button size="small" color="primary">
+                      Edit
+                    </Button>
+                  </CardActions>
                 </Card>
             </Grid>
         </>

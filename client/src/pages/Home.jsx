@@ -20,7 +20,7 @@ class Home extends Component {
           <Container maxwidth="sm">
             <Header />
           </Container>
-          <Container maxwidth="md">
+          <Container style={{marginTop: "10%"}} maxwidth="md">
             <Grid container spacing={4}>
             {this.state.charitys.map((charity, index) => {
                 return <CharityCard
