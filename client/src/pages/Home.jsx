@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 
@@ -10,6 +10,11 @@ const Home = () => {
       <main>
           <Container maxwidth="sm">
             <Header />
+          </Container>
+          <Container maxwidth="md">
+            <Grid container spacing={4}>
+
+            </Grid>
           </Container>
       </main>
     </>
