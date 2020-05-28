@@ -19,24 +19,33 @@ const useStyles = makeStyles({
 	}
 });
 
-const CharityCard = (props) => {
+const SearchCard = (props) => {
 	const classes = useStyles();
-	const { name, image, about } = props.charity;
+	const { charityName, image, irsClassification, ein } = props.charity;
 
 	return (
 		<>
-			<Grid item key={props.key} xs={12} sm={6} md={4}>
+			<Grid item key={props.charity.ein} xs={12} sm={6} md={4}>
 				<Card className={classes.root}>
 					<CardMedia
 						className={classes.media}
 						image={image}
-						title={name}
+						title={charityName}
 					/>
 					<CardContent>
 						<Typography gutterBottom variant="h5" component="h2">
-							{name}
+							{charityName}
 						</Typography>
-						<Typography>{about}</Typography>
+						<br />
+						<Typography>
+							Classification: {irsClassification.classification}
+						</Typography>
+						<br />
+						<Typography>
+							Deductibility: {irsClassification.deductibility}
+						</Typography>
+						<br />
+						<Typography>EIN: {ein}</Typography>
 					</CardContent>
 					<CardActions>
 						<Button size="small" color="primary">
@@ -52,4 +61,4 @@ const CharityCard = (props) => {
 	);
 };
 
-export default CharityCard;
+export default SearchCard;
