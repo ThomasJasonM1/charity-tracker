@@ -1,28 +1,28 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import "./App.css";
-import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Organization from "./pages/Organization";
-import CharitySearch from "./pages/CharitySearch";
+import './App.css';
+import Dashboard from "./components/Dashboard";
+import Home from './pages/Home';
+import CharitySearch from './pages/CharitySearch';
+import Donate from'./pages/Donate';
 
 function App() {
-	return (
-		<>
-			<Navbar />
-			<Switch>
-				<Route exact path={["/", "/home"]}>
-					<Home />
-				</Route>
-				<Route exact path={["/organization"]}>
-					<Organization />
-				</Route>
-				<Route path={["/search"]}>
-					<CharitySearch />
-				</Route>
-			</Switch>
-		</>
-	);
+  return (
+    <>
+    <Dashboard />
+    <Switch>
+      <Route exact path={["/", "/home"]}>
+        <Home />
+      </Route>
+      <Route exact path={["/search"]}>
+        <CharitySearch />
+      </Route>
+			<Route exact path={["/donate"]}>
+        <Donate />
+      </Route>
+    </Switch>
+    </>
+  );
 }
 
 export default App;
