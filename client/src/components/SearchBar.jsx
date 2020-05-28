@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
 	root: {
 		"& > *": {
 			margin: theme.spacing(1),
-			width: "35%"
+			width: "95%"
 		}
 	}
 }));
@@ -16,7 +16,6 @@ const SearchBar = (props) => {
 
 	const onInputChange = (event) => {
 		setSearchTerm(event.target.value);
-		console.log(searchTerm);
 	};
 
 	const onFormSubmit = (event) => {
