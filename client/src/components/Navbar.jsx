@@ -5,9 +5,8 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Badge, Hidden, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import AccessibleIcon from '@material-ui/icons/Accessible';
-import InputIcon from '@material-ui/icons/Input';
+import Popover from './Popover';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,7 +25,7 @@ const Topbar = props => {
 
   const classes = useStyles();
 
-  const [notifications] = useState([]);
+  // const [notifications] = useState([]);
 
   return (
     <AppBar
@@ -39,7 +38,7 @@ const Topbar = props => {
         </RouterLink>
         <div className={classes.flexGrow} />
         <Hidden mdDown>
-          <IconButton color="inherit">
+          {/* <IconButton color="inherit">
             <Badge
               badgeContent={notifications.length}
               color="primary"
@@ -47,12 +46,13 @@ const Topbar = props => {
             >
               <NotificationsIcon />
             </Badge>
-          </IconButton>
+          </IconButton> */}
           <IconButton
             className={classes.signOutButton}
             color="inherit"
           >
-            <InputIcon />
+            {/* <InputIcon /> */}
+            <Popover />
           </IconButton>
         </Hidden>
         <Hidden lgUp>
