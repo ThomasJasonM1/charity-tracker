@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Divider, Drawer } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
+<<<<<<< Updated upstream
 import SearchIcon from '@material-ui/icons/Search';
+=======
+import PeopleIcon from '@material-ui/icons/People';
+>>>>>>> Stashed changes
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import TextFieldsIcon from '@material-ui/icons/TextFields';
 import ImageIcon from '@material-ui/icons/Image';
@@ -44,11 +48,16 @@ const Sidebar = props => {
 
   const pages = [
     {
+<<<<<<< Updated upstream
       title: 'My Charities',
+=======
+      title: 'Charities',
+>>>>>>> Stashed changes
       href: '/',
       icon: <DashboardIcon />
     },
     {
+<<<<<<< Updated upstream
       title: 'Search',
       href: '/search',
       icon: <SearchIcon />
@@ -60,10 +69,36 @@ const Sidebar = props => {
     },
     {
       title: 'Volunteer',
+=======
+      title: 'Users',
+      href: '/users',
+      icon: <PeopleIcon />
+    },
+    {
+      title: 'Products',
+      href: '/products',
+      icon: <ShoppingBasketIcon />
+    },
+    {
+      title: 'Authentication',
+>>>>>>> Stashed changes
       href: '/sign-in',
       icon: <LockOpenIcon />
     },
     {
+<<<<<<< Updated upstream
+=======
+      title: 'Typography',
+      href: '/typography',
+      icon: <TextFieldsIcon />
+    },
+    {
+      title: 'Icons',
+      href: '/icons',
+      icon: <ImageIcon />
+    },
+    {
+>>>>>>> Stashed changes
       title: 'Account',
       href: '/account',
       icon: <AccountBoxIcon />
