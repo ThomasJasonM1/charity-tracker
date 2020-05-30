@@ -12,7 +12,7 @@ const Subtitle = () => {
         color="textPrimary"
         gutterBottom
       >
-        Charity Tracker
+        Your Charities
       </Typography>
       <Typography variant="h5" align="center" color="textSecondary" paragraph>
         Lorem Ipsum is simply dummy text of the printing and typesetting
