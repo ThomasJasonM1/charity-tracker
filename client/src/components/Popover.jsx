@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
 export default function SimplePopover() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -49,13 +52,25 @@ export default function SimplePopover() {
         <Typography className={classes.typography}>
           <form>
             <h3>Administrator Login</h3>
-            <TextField id="standard-basic" label="Username" />
+            <TextField 
+              onid="standard-basic"
+              label="Username"
+              onChange={e => setUsername(e.target.value)} 
+            />
             <br/>
             <br/>
-            <TextField id="standard-basic" label="Password" />
+            <TextField 
+              id="standard-basic"
+              label="Password"
+              onChange={e => setPassword(e.target.value)}
+            />
             <br/>
             <br/>
-            <Button style={{marginLeft: "30%"}}>Login</Button>
+            <Button 
+              style={{marginLeft: "30%"}}
+              onClick={() => console.log(username + " " + password)}
+            >Login
+            </Button>
           </form>
         </Typography>
       </Popover>
