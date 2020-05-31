@@ -24,6 +24,7 @@ class Home extends Component {
 								return (
 									<CharityCard
 										key={index}
+										id={index}
 										charity={charity}
 									/>
 								);

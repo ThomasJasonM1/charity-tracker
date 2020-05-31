@@ -25,7 +25,7 @@ const CharityCard = (props) => {
 
 	return (
 		<>
-			<Grid item key={props.key} xs={12} sm={6} md={4}>
+			<Grid item key={props.id} xs={12} sm={6} md={4}>
 				<Card className={classes.root}>
 					<CardMedia
 						className={classes.media}

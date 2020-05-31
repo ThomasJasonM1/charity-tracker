@@ -27,15 +27,9 @@ const Profile = props => {
   const classes = useStyles();
 
   const user = {
-<<<<<<< Updated upstream
     name: 'Tom Vajaynick',
     avatar: 'https://akns-images.eonline.com/eol_images/Entire_Site/2015518/rs_300x300-150618104511-600.tom-myspace.jw.61815.jpg?fit=around|1200:1200&crop=1200:1200;center,top&output-quality=90',
     bio: 'HR Manager'
-=======
-    name: 'Shen Zhi',
-    avatar: '/images/avatars/avatar_11.png',
-    bio: 'Brain Director'
->>>>>>> Stashed changes
   };
 
   return (
