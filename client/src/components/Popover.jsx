@@ -1,10 +1,13 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import InputIcon from '@material-ui/icons/Input';
 import TextField from '@material-ui/core/TextField';
+import API from "../api";
+
+
 
 const useStyles = makeStyles((theme) => ({
   typography: {
@@ -12,12 +15,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimplePopover() {
+export default function SimplePopover(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [formObject, setFormObject] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleInputChange = (event) => {
+    const { value, name } = event.target;
+    setFormObject({ ...formObject, [name]: value });
+  }
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -26,6 +36,12 @@ export default function SimplePopover() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogin = () => {
+    API.signIn(formObject)
+      .then((userDetails) => props.handleUserLogin(userDetails.data))
+      .catch((err) => console.log("An error occured", err));
+  }
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
@@ -55,20 +71,24 @@ export default function SimplePopover() {
             <TextField 
               onid="standard-basic"
               label="Username"
-              onChange={e => setUsername(e.target.value)} 
+              name="username"
+              value={formObject.username}
+              onChange={handleInputChange} 
             />
             <br/>
             <br/>
             <TextField 
               id="standard-basic"
               label="Password"
-              onChange={e => setPassword(e.target.value)}
+              name="password"
+              value={formObject.password}
+              onChange={handleInputChange}
             />
             <br/>
             <br/>
             <Button 
               style={{marginLeft: "30%"}}
-              onClick={() => console.log(username + " " + password)}
+              onClick={handleLogin}
             >Login
             </Button>
           </form>
