@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { Grid, useMediaQuery } from '@material-ui/core';
+import { useMediaQuery } from '@material-ui/core';
 
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
@@ -23,8 +23,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Dashboard = (props) => {
-  const { children } = props;
+const Dashboard = () => {
 
   const classes = useStyles();
   const theme = useTheme();
