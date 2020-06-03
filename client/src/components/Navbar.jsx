@@ -1,11 +1,9 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Hidden, IconButton } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import AccessibleIcon from "@material-ui/icons/Accessible";
 import Popover from "./Popover";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,12 +26,9 @@ const Navbar = (props) => {
   return (
     <AppBar {...rest} className={clsx(classes.root, className)}>
       <Toolbar>
-        <RouterLink to="/">
-          <AccessibleIcon />
-        </RouterLink>
         <div className={classes.flexGrow} />
         <Hidden mdDown>
-          <IconButton className={classes.signOutButton} color="inherit">
+          <IconButton onClick={props.handleSignOut} className={classes.signOutButton} color="inherit">
             <Popover handleUserLogin={props.handleUserLogin}/>
           </IconButton>
         </Hidden>

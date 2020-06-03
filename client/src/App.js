@@ -16,6 +16,11 @@ function App() {
     setCurrentUser({ ...userDetails, isSignedIn: true });
   }
 
+  function handleSignOut(userDetails) {
+    console.log("Logging out user");
+    setCurrentUser({ ...userDetails, isSignedIn: false });
+  }
+
   if (!currentUser.isSignedIn) {
     return ( 
       <>
@@ -26,7 +31,7 @@ function App() {
   }
   return (
     <>
-    <Dashboard />
+    <Dashboard handleSignOut={handleSignOut}/>
     <Switch>
       <Route exact path={["/", "/home"]}>
         <Home />

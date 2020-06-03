@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Dashboard = () => {
+const Dashboard = (props) => {
 
   const classes = useStyles();
   const theme = useTheme();
@@ -46,7 +46,10 @@ const Dashboard = () => {
 
   return (
     <div className={classes.root}>
-      <Navbar onSidebarOpen={handleSidebarOpen}/>
+      <Navbar 
+        onSidebarOpen={handleSidebarOpen}
+        handleSignOut={props.handleSignOut}
+        />
       <Sidebar
         onClose={handleSidebarClose}
         open={shouldOpenSidebar}
