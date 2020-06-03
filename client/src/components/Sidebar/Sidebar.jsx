@@ -52,8 +52,8 @@ const Sidebar = props => {
       icon: <SearchIcon />
     },
     {
-      title: 'Calender?',
-      href: '/calender',
+      title: 'Calendar?',
+      href: '/calendar',
       icon: <ShoppingBasketIcon />
     },
     {
