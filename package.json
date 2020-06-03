@@ -1,48 +1,48 @@
 {
-  "name": "charity-tracker",
-  "version": "0.1.0",
-  "description": "",
-  "main": "server.js",
-  "dependencies": {
-    "@material-ui/icons": "^4.9.1",
-    "@material-ui/styles": "^4.10.0",
-    "axios": "^0.18.0",
-    "chart.js": "^2.9.3",
-    "clsx": "^1.1.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "if-env": "^1.0.4",
-    "mongoose": "^5.3.16",
-    "prop-types": "^15.7.2",
-    "react-chartjs-2": "^2.9.0",
-    "react-number-format": "^4.4.1",
-    "react-text-mask": "^5.4.3",
-    "request-promise": "^4.2.5"
-  },
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
-  },
-  "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "charity-tracker",
+	"version": "0.1.0",
+	"description": "",
+	"main": "server.js",
+	"dependencies": {
+		"@material-ui/icons": "^4.9.1",
+		"@material-ui/styles": "^4.10.0",
+		"axios": "^0.18.0",
+		"bcrypt": "^4.0.1",
+		"chart.js": "^2.9.3",
+		"clsx": "^1.1.0",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"if-env": "^1.0.4",
+		"mongoose": "^5.3.16",
+		"morgan": "^1.10.0",
+		"prop-types": "^15.7.2",
+		"react-chartjs-2": "^2.9.0",
+		"request-promise": "^4.2.5"
+	},
+	"devDependencies": {
+		"concurrently": "^4.1.0",
+		"nodemon": "^1.18.7"
+	},
+	"scripts": {
+		"start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev && NODE_ENV=dev",
+		"start:prod": "node server.js",
+		"start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+		"client": "cd client && npm run start",
+		"seed": "node scripts/seedDB.js",
+		"install": "cd client && npm install",
+		"build": "cd client && npm run build",
+		"heroku-postbuild": "npm run build"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }
