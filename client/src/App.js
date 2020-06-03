@@ -24,17 +24,23 @@ function App() {
   if (!currentUser.isSignedIn) {
     return ( 
       <>
-      <Navbar handleUserLogin={handleUserLogin}/>
-      <Home />
+      <Navbar 
+        handleUserLogin={handleUserLogin}
+        isSignedIn={currentUser.isSignedIn}
+        />
+      <Home isSignedIn={currentUser.isSignedIn}/>
       </>
     )
   }
   return (
     <>
-    <Dashboard handleSignOut={handleSignOut}/>
+    <Dashboard 
+      handleSignOut={handleSignOut}
+      isSignedIn={currentUser.isSignedIn}
+      />
     <Switch>
       <Route exact path={["/", "/home"]}>
-        <Home />
+        <Home isSignedIn={currentUser.isSignedIn}/>
       </Route>
       <Route exact path={["/search"]}>
         <CharitySearch />

@@ -22,14 +22,17 @@ const Navbar = (props) => {
   const { className, onSidebarOpen, ...rest } = props;
 
   const classes = useStyles();
-
   return (
     <AppBar {...rest} className={clsx(classes.root, className)}>
       <Toolbar>
         <div className={classes.flexGrow} />
         <Hidden mdDown>
-          <IconButton onClick={props.handleSignOut} className={classes.signOutButton} color="inherit">
-            <Popover handleUserLogin={props.handleUserLogin}/>
+          <IconButton color="inherit">
+            <Popover 
+              handleUserLogin={props.handleUserLogin}
+              handleSignOut={props.handleSignOut}
+              isSignedIn={props.isSignedIn}
+              />
           </IconButton>
         </Hidden>
         <Hidden lgUp>

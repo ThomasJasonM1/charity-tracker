@@ -49,6 +49,7 @@ const Dashboard = (props) => {
       <Navbar 
         onSidebarOpen={handleSidebarOpen}
         handleSignOut={props.handleSignOut}
+        isSignedIn={props.isSignedIn}
         />
       <Sidebar
         onClose={handleSidebarClose}

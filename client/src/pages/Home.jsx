@@ -11,6 +11,7 @@ class Home extends Component {
 	};
 
 	render() {
+		console.log(this.props.isSignedIn);
 		return (
 			<>
 				<CssBaseline />
@@ -26,6 +27,7 @@ class Home extends Component {
 										key={index}
 										id={index}
 										charity={charity}
+										isSignedIn={this.props.isSignedIn}
 									/>
 								);
 							})}
