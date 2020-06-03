@@ -5,6 +5,7 @@ import Dashboard from "./components/Dashboard";
 import Home from './pages/Home';
 import CharitySearch from './pages/CharitySearch';
 import Donate from'./pages/Donate';
+import Organization from "./pages/Organization";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
       </Route>
 			<Route exact path={["/donate"]}>
         <Donate />
+      </Route>
+      <Route exact path={["/organization/:ein"]}>
+        <Organization />
       </Route>
     </Switch>
     </>
