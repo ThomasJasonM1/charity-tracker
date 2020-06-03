@@ -5,11 +5,9 @@ import Dashboard from "./components/Dashboard";
 import Home from './pages/Home';
 import CharitySearch from './pages/CharitySearch';
 import Donate from'./pages/Donate';
-<<<<<<< HEAD
-import Organization from "./pages/Organization";
-=======
 import Navbar from './components/Navbar';
->>>>>>> f3eb4028872901cb1932d1f5af70b046fb5a201a
+import Organization from "./pages/Organization";
+
 
 function App() {
 
