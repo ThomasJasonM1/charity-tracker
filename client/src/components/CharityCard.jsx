@@ -42,9 +42,9 @@ const CharityCard = (props) => {
 						<Button size="small" color="primary">
 							View
 						</Button>
-						<Button size="small" color="primary">
+						{props.isSignedIn === true ? <Button size="small" color="primary">
 							Edit
-						</Button>
+						</Button> : null}
 					</CardActions>
 				</Card>
 			</Grid>
