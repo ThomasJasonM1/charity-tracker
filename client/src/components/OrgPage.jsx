@@ -26,6 +26,11 @@ function OrgPage() {
 
   const { ein } = useParams();
   useEffect(() => {
+
+    API.getDbCharity(ein)
+    .then(res => setCharityData(res.data))
+    .catch(err => console.log(err));
+
     if (!org) {
       const getResponse = async () => {
 
@@ -37,12 +42,18 @@ function OrgPage() {
       }
       getResponse();
     }
-  }, [org]);
+  }, [org, ein]);
   console.log(org);
+
+  // useEffect(() => {
+  //   API.getDbCharity(ein)
+  //   .then(res => setCharityData(res.data))
+  //   .catch(err => console.log(err));
+  // }, []);
 
   function handleInputChange(event) {
     const { name, value } = event.target;
-    setCharityData({ ...charityData, [name]: value })
+    setCharityData({...charityData, [name]: value })
   };
 
   const handleAddOrg = event => {
@@ -86,11 +97,15 @@ function OrgPage() {
       .catch(err => console.log(err));
   }
 
+  // const handleChange = (event) => {
+  //   setSelectedValue(event.target.value);
+  // };
+
   return (
     <Container>
       <div className={classes.root}>
 
-        <img className="img-fluid causeImage" src={org.cause && org.cause.image} />
+        <img className="img-fluid causeImage" src={org.cause && org.cause.image} alt="Cause" />
         <h1>{org.charityName} ({org.category && org.category.categoryName})
           <Fab className={classes.addBtn} color="primary" aria-label="add">
             <AddIcon
@@ -107,7 +122,7 @@ function OrgPage() {
         </h1>
 
         <h2>Rating: {org.currentRating && org.currentRating.score}
-          <img id="ratingImage" src={org.currentRating && org.currentRating && org.currentRating.ratingImage && org.currentRating.ratingImage.large} />
+          <img id="ratingImage" src={org.currentRating && org.currentRating && org.currentRating.ratingImage && org.currentRating.ratingImage.large} alt="Rating" />
         </h2>
 
         <h3>EIN: <span>{org.ein}</span></h3>
@@ -148,13 +163,15 @@ function OrgPage() {
               control={<Radio color="primary" />}
               label="Yes"
               labelPlacement="start"
+              onChange={handleInputChange}
             />
             <FormControlLabel
               value="false"
-              // name="isDonationPartner"
+              name="isDonationPartner"
               control={<Radio color="primary" />}
               label="No"
               labelPlacement="start"
+              onChange={handleInputChange}
             />
           </RadioGroup>
         </FormControl>
@@ -169,13 +186,15 @@ function OrgPage() {
               control={<Radio color="primary" />}
               label="Yes"
               labelPlacement="start"
+              onChange={handleInputChange}
             />
             <FormControlLabel
               value="false"
-              // name="isVolunteerPartner"
+              name="isVolunteerPartner"
               control={<Radio color="primary" />}
               label="No"
               labelPlacement="start"
+              onChange={handleInputChange}
             />
           </RadioGroup>
         </FormControl>
@@ -185,6 +204,7 @@ function OrgPage() {
         <FormattedInputs
           org={org}
           handleInputChange={handleInputChange}
+          charityData={charityData}
         />
       </div>
 
@@ -195,6 +215,7 @@ function OrgPage() {
         className="form-control"
         name="howWeCanHelp"
         onChange={handleInputChange}
+        defaultValue={charityData.howWeCanHelp}
       /><br /><br />
 
       <h3>Upcoming Events: ((calendar??))</h3>

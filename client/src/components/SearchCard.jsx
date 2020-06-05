@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -10,9 +10,6 @@ import {
 	Typography,
 	Button
 } from "@material-ui/core";
-
-import API from "../utils/API";
-import axios from "axios";
 
 const useStyles = makeStyles({
 	root: {
