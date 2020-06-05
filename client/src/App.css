@@ -1,9 +1,5 @@
-/* .addBtn {
-  margin-left: 20px;
-} */
 .wrapper {
   justify-content: center;
-  /* background-color: red; */
   padding-left: 40px;
 }
 
@@ -13,8 +9,7 @@
 }
 
 #webAddress {
-  /* margin-right: 30px; */
-  width: 850px;
+  width: 300px;
 }
 
 #street {
@@ -47,7 +42,3 @@
 #rating {
   margin-left: 100px;
 }
-
-/* #irsClass {
-  font-weight: lighter;
-} */

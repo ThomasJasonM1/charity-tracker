@@ -52,30 +52,44 @@ export function FormattedInputs(props) {
     <form className={classes.root} noValidate autoComplete="off">
       <div>
         <TextField
+          name="firstName"
           InputLabelProps={{ shrink: true }}
-          label="Name"
-          size="small" />
+          label="First Name"
+          size="small"
+          onChange={props.handleInputChange}
+        />
         <TextField
+          name="lastName"
+          InputLabelProps={{ shrink: true }}
+          label="Last Name"
+          size="small"
+          onChange={props.handleInputChange}
+        />
+        <TextField
+          name="email"
           label="Email"
           InputLabelProps={{ shrink: true }}
-          size="small" />
+          size="small"
+          onChange={props.handleInputChange}
+        />
         <br /><br />
         <InputLabel htmlFor="formatted-text-mask-input">Phone</InputLabel>
         <Input
-          onChange={handleChange}
-          name="textmask"
+          name="phone"
           id="formatted-text-mask-input"
           inputComponent={TextMaskCustom}
+          onChange={props.handleInputChange}
         />
       </div><br />
       <div>
         <h3>Organization Contact Info</h3>
 
-        <TextField label="Web Address"
+        <TextField
+          label="Web Address"
           InputLabelProps={{ shrink: true }}
           id="webAddress"
           size="small"
-          value={props.org.charityNavigatorURL} /><br /><br />
+          value={props.org.websiteURL} /><br /><br />
         <TextField
           label="Mailing Address"
           InputLabelProps={{ shrink: true }}
