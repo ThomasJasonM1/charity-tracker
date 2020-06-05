@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
 	Grid,
@@ -10,9 +11,13 @@ import {
 	Button
 } from "@material-ui/core";
 
+import API from "../utils/API";
+import axios from "axios";
+
 const useStyles = makeStyles({
 	root: {
-		maxWidth: 345
+		maxWidth: 345,
+		height: 450
 	},
 	media: {
 		height: 140
@@ -48,9 +53,11 @@ const SearchCard = (props) => {
 						<Typography>EIN: {ein}</Typography>
 					</CardContent>
 					<CardActions>
-						<Button size="small" color="primary">
-							View
-						</Button>
+
+						<Link to={"/organization/" + ein}
+						>
+								View
+						</Link>
 						<Button size="small" color="primary">
 							Edit
 						</Button>

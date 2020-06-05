@@ -21,7 +21,8 @@ router.route("/nav/:searchterm").get((req, res) => {
 router.route("/nav/:ein").get((req, res) => {
 	charityNav
 		.searchByEin(req.params.ein)
-		.then((response) => res.json(response.data));
+		.then((response) => res.json(response.data))
+		.catch((err) => console.log(err));
 });
 
 module.exports = router;

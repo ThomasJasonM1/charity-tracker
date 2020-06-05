@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import CharitySearch from './pages/CharitySearch';
 import Donate from'./pages/Donate';
 import Navbar from './components/Navbar';
+import Organization from "./pages/Organization";
+
 
 function App() {
 
@@ -47,6 +49,9 @@ function App() {
       </Route>
 			<Route exact path={["/donate"]}>
         <Donate />
+      </Route>
+      <Route exact path={["/organization/:ein"]}>
+        <Organization />
       </Route>
     </Switch>
     </>

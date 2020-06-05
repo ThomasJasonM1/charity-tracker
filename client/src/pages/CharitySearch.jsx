@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import API from "../utils/API";
+import API from "../utils/API.js";
 import SearchBar from "../components/SearchBar";
 import SearchResults from "../components/SearchResults";
 import "../styles/CharitySearch.css";
