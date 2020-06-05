@@ -7,6 +7,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Define middleware here
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://localhost/3000');
+  next();
+});
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

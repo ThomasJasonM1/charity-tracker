@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import { Container, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, Fab, makeStyles } from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
 import { FormattedInputs } from "./ContactInfo";
+import axios from "axios";
 
-import API from "../utils/API";
+import API from "../utils/API.js";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,27 +21,31 @@ const useStyles = makeStyles((theme) => ({
 function OrgPage() {
   const classes = useStyles();
 
-  const [org, setOrg] = useState({});
+  const [org, setOrg] = useState("");
 
   const { ein } = useParams();
   useEffect(() => {
-    getResponse();
-  }, []);
-  const getResponse = async () => {
+    if (!org)  {
+      const getResponse = async () => {
 
-    await API.getOrg(ein)
-      .then(res => setOrg(res.data))
-      .catch(err => console.log(err));
-    console.log(org);
+        API.charitySearchByEIN(ein)
+          .then(res => {
+            setOrg(res.data[0])
+          })
+          .catch(err => console.log(err));
+      }
+      getResponse();
+    }
+  }, [org]);
+  console.log(org);
 
-  }
 
   return (
     <Container>
       <div className={classes.root}>
 
-      <img className="img-fluid causeImage" src={org.cause && org.cause.image} />
-      <h1>{org.charityName} ({org.category && org.category.categoryName})
+        <img className="img-fluid causeImage" src={org.cause && org.cause.image} />
+        <h1>{org.charityName} ({org.category && org.category.categoryName})
           <Fab className={classes.addBtn} color="primary" aria-label="add">
             <AddIcon />
           </Fab><br />
@@ -48,15 +53,14 @@ function OrgPage() {
 
         <h2>Rating: {org.currentRating && org.currentRating.score}
           <img id="ratingImage" src={org.currentRating && org.currentRating && org.currentRating.ratingImage && org.currentRating.ratingImage.large} />
-          </h2>
+        </h2>
         {/* src="https://placehold.it/300x200" */}
 
         <h3>EIN: <span>{org.ein}</span></h3>
 
         <h3>Cause:
-    <span> {org.cause && org.cause.causeName}</span>
+          <span> {org.cause && org.cause.causeName}</span>
         </h3>
-
       </div>
 
       <h4>Tagline:</h4>
@@ -77,8 +81,8 @@ function OrgPage() {
         name="text"
         defaultValue={org.mission}
       // onChange={handleChange}
-      /><br /><br />
-
+      />
+      <br /><br />
 
       <div>
         <FormControl component="fieldset">
@@ -120,7 +124,7 @@ function OrgPage() {
         <br /><br />
 
         <h3>Point of Contact Info</h3>
-          <FormattedInputs
+        <FormattedInputs
           org={org}
         />
 
@@ -139,9 +143,8 @@ function OrgPage() {
       <br /><br />
 
       <h3>IRS Classification: <span id="irsClass">{org.irsClassification && org.irsClassification.classification}, </span>
-  <span>{org.irsClassification && org.irsClassification.deductibility}</span>
+        <span>{org.irsClassification && org.irsClassification.deductibility}</span>
       </h3>
-
       <br /><br />
 
     </Container>
