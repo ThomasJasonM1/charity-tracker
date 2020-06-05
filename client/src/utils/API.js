@@ -25,11 +25,11 @@ export default {
 	deleteDbCharity: function (id) {
 		return axios.delete("/api/charity/" + id);
 	},
-
+	// General charity nav search
 	charityNavSearch: function (searchTerm) {
 		return axios.get("/api/charity/nav/" + searchTerm);
 	},
-
+	// Searches for a specific charity by EIN
 	charitySearchByEIN: function (ein) {
 		return axios.get("/api/charity/nav/" + ein);
 	}
