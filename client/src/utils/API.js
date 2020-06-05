@@ -1,15 +1,13 @@
 import axios from "axios";
 
-
 export default {
-
 	// Signs in an admin
 	adminLogin: function (credentials) {
 		return axios.post("/api/user/login", credentials);
 	},
-	// Get charity from the db via id
-	getDbCharity: function (id) {
-		return axios.get("/api/charity/" + id);
+
+	getDbCharity: function (ein) {
+		return axios.get("/api/charity/" + ein);
 	},
 	// Get all charities from the db
 	getDbCharities: function () {

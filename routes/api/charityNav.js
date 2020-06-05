@@ -12,7 +12,7 @@ module.exports = {
 
 	searchByEin: function (ein) {
 		return axios.get(
-			`https://api.data.charitynavigator.org/v2/Organizations/${ein}?app_id=${APP_ID}&app_key=${APP_KEY}`
+			`https://api.data.charitynavigator.org/v2/Organizations/${ein}?app_id=${API_ID}&app_key=${API_KEY}`
 		);
 	}
 };
