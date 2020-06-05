@@ -28,11 +28,11 @@ function OrgPage() {
   useEffect(() => {
 
     API.getDbCharity(ein)
-    .then(res => setCharityData(res.data))
-    .catch(err => console.log(err));
+      .then(res => setCharityData(res.data))
+      .catch(err => console.log(err));
 
     if (!org) {
-      const getResponse = async () => {
+      const getResponse = () => {
 
         API.charitySearchByEIN(ein)
           .then(res => {
@@ -45,15 +45,9 @@ function OrgPage() {
   }, [org, ein]);
   console.log(org);
 
-  // useEffect(() => {
-  //   API.getDbCharity(ein)
-  //   .then(res => setCharityData(res.data))
-  //   .catch(err => console.log(err));
-  // }, []);
-
   function handleInputChange(event) {
     const { name, value } = event.target;
-    setCharityData({...charityData, [name]: value })
+    setCharityData({ ...charityData, [name]: value })
   };
 
   const handleAddOrg = event => {
@@ -97,16 +91,12 @@ function OrgPage() {
       .catch(err => console.log(err));
   }
 
-  // const handleChange = (event) => {
-  //   setSelectedValue(event.target.value);
-  // };
-
   return (
     <Container>
       <div className={classes.root}>
 
         <img className="img-fluid causeImage" src={org.cause && org.cause.image} alt="Cause" />
-        <h1>{org.charityName} ({org.category && org.category.categoryName})
+        <h2>{org.charityName} ({org.category && org.category.categoryName})
           <Fab className={classes.addBtn} color="primary" aria-label="add">
             <AddIcon
               onClick={handleAddOrg}
@@ -119,31 +109,34 @@ function OrgPage() {
             />
           </Fab>
           <br />
-        </h1>
-
-        <h2>Rating: {org.currentRating && org.currentRating.score}
-          <img id="ratingImage" src={org.currentRating && org.currentRating && org.currentRating.ratingImage && org.currentRating.ratingImage.large} alt="Rating" />
         </h2>
 
-        <h3>EIN: <span>{org.ein}</span></h3>
+        <h5>Rating: {org.currentRating && org.currentRating.score}
+          <img id="ratingImage" src={org.currentRating && org.currentRating && org.currentRating.ratingImage && org.currentRating.ratingImage.large} alt="Rating" />
+        </h5>
 
-        <h3>Cause:
+        <h5>EIN: <span>{org.ein}</span></h5>
+
+        <h5>Cause:
           <span> {org.cause && org.cause.causeName}</span>
-        </h3>
+        </h5>
       </div>
+      <br />
 
-      <h4>Tagline:</h4>
+      <h5>Tagline:</h5>
       <textarea
+        style={{ width: '550px' }}
         rows="3"
-        cols="50"
+        cols="20"
         className="form-control"
         name="text"
         defaultValue={org.tagLine}
       // onChange={handleChange}
       /><br /><br />
 
-      <h4>Mission Statement:</h4>
+      <h5>Mission Statement:</h5>
       <textarea
+        style={{ width: '550px' }}
         rows="10"
         cols="70"
         className="form-control"
@@ -155,7 +148,9 @@ function OrgPage() {
 
       <div>
         <FormControl component="fieldset">
-          <FormLabel component="legend">Do we donation match?</FormLabel>
+          <FormLabel component="legend"
+            style={{ color: 'black' }}
+          ><h5>Do we donation match?</h5></FormLabel>
           <RadioGroup row aria-label="position" name="position" defaultValue="start">
             <FormControlLabel
               value="true"
@@ -178,7 +173,9 @@ function OrgPage() {
         <br /><br />
 
         <FormControl component="fieldset">
-          <FormLabel component="legend">Do we partner with this organization for volunteering?</FormLabel>
+          <FormLabel component="legend"
+            style={{ color: 'black' }}
+          ><h5>Do we partner with this organization for volunteering?</h5></FormLabel>
           <RadioGroup row aria-label="position" name="position" defaultValue="start">
             <FormControlLabel
               value="true"
@@ -200,7 +197,7 @@ function OrgPage() {
         </FormControl>
         <br /><br />
 
-        <h3>Point of Contact Info</h3>
+        <h5>Point of Contact Info</h5>
         <FormattedInputs
           org={org}
           handleInputChange={handleInputChange}
@@ -208,14 +205,15 @@ function OrgPage() {
         />
       </div>
 
-      <h4>How we can help:</h4>
+      <h5>How we can help:</h5>
       <textarea
+        style={{ width: '550px' }}
         rows="10"
         cols="70"
         className="form-control"
         name="howWeCanHelp"
         onChange={handleInputChange}
-        defaultValue={charityData.howWeCanHelp}
+        defaultValue={charityData ? charityData.howWeCanHelp : ""}
       /><br /><br />
 
       <h3>Upcoming Events: ((calendar??))</h3>
