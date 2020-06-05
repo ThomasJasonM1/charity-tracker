@@ -26,6 +26,17 @@ const Navbar = (props) => {
     <AppBar {...rest} className={clsx(classes.root, className)}>
       <Toolbar>
         <div className={classes.flexGrow} />
+        {props.isSignedIn === false ? 
+        <>
+        <IconButton color="inherit">
+            <Popover 
+              handleUserLogin={props.handleUserLogin}
+              handleSignOut={props.handleSignOut}
+              isSignedIn={props.isSignedIn}
+              />
+          </IconButton>
+        </> : 
+        <>
         <Hidden mdDown>
           <IconButton color="inherit">
             <Popover 
@@ -36,10 +47,19 @@ const Navbar = (props) => {
           </IconButton>
         </Hidden>
         <Hidden lgUp>
+        <IconButton color="inherit">
+            <Popover 
+              handleUserLogin={props.handleUserLogin}
+              handleSignOut={props.handleSignOut}
+              isSignedIn={props.isSignedIn}
+              />
+          </IconButton>
           <IconButton color="inherit" onClick={onSidebarOpen}>
             <MenuIcon />
           </IconButton>
         </Hidden>
+        </>
+        }
       </Toolbar>
     </AppBar>
   );
