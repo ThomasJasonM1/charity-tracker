@@ -52,24 +52,14 @@ const Sidebar = props => {
       icon: <SearchIcon />
     },
     {
-      title: 'Donate',
-      href: '/donate',
+      title: 'Calendar?',
+      href: '/calendar',
       icon: <ShoppingBasketIcon />
-    },
-    {
-      title: 'Volunteer',
-      href: '/sign-in',
-      icon: <LockOpenIcon />
     },
     {
       title: 'Account',
       href: '/account',
       icon: <AccountBoxIcon />
-    },
-    {
-      title: 'Settings',
-      href: '/settings',
-      icon: <SettingsIcon />
     }
   ];
 

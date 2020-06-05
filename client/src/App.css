@@ -1,0 +1,53 @@
+/* .addBtn {
+  margin-left: 20px;
+} */
+.wrapper {
+  justify-content: center;
+  /* background-color: red; */
+  padding-left: 40px;
+}
+
+#ratingImage {
+  margin-left: 15px;
+  padding-bottom: 2px;
+}
+
+#webAddress {
+  /* margin-right: 30px; */
+  width: 850px;
+}
+
+#street {
+  margin-right: 25px;
+}
+
+#city {
+  width: 125px;
+  margin-right: 25px;
+}
+
+#state {
+  width: 60px;
+}
+
+#zipcode {
+  width: 70px;
+}
+
+#phone {
+  margin-top: 21px;
+  margin-right: 5px;
+}
+
+.causeImage {
+  float: left;
+  margin-right: 15px;
+}
+
+#rating {
+  margin-left: 100px;
+}
+
+/* #irsClass {
+  font-weight: lighter;
+} */

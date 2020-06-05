@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import CharitySearch from './pages/CharitySearch';
 import Donate from'./pages/Donate';
 import Navbar from './components/Navbar';
+import Organization from "./pages/Organization";
+
 
 function App() {
 
@@ -16,26 +18,40 @@ function App() {
     setCurrentUser({ ...userDetails, isSignedIn: true });
   }
 
+  function handleSignOut(userDetails) {
+    console.log("Logging out user");
+    setCurrentUser({ ...userDetails, isSignedIn: false });
+  }
+
   if (!currentUser.isSignedIn) {
     return ( 
       <>
-      <Navbar handleUserLogin={handleUserLogin}/>
-      <Home />
+      <Navbar 
+        handleUserLogin={handleUserLogin}
+        isSignedIn={currentUser.isSignedIn}
+        />
+      <Home isSignedIn={currentUser.isSignedIn}/>
       </>
     )
   }
   return (
     <>
-    <Dashboard />
+    <Dashboard 
+      handleSignOut={handleSignOut}
+      isSignedIn={currentUser.isSignedIn}
+      />
     <Switch>
       <Route exact path={["/", "/home"]}>
-        <Home />
+        <Home isSignedIn={currentUser.isSignedIn}/>
       </Route>
       <Route exact path={["/search"]}>
         <CharitySearch />
       </Route>
 			<Route exact path={["/donate"]}>
         <Donate />
+      </Route>
+      <Route exact path={["/organization/:ein"]}>
+        <Organization />
       </Route>
     </Switch>
     </>

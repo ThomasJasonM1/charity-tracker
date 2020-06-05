@@ -1,6 +1,7 @@
 import React from "react";
 import { CssBaseline, Container } from "@material-ui/core";
 import Header from "../components/Header";
+import OrgPage from "../components/OrgPage";
 
 const Organization = (props) => {
 	const sections = [
@@ -11,8 +12,11 @@ const Organization = (props) => {
 	return (
 		<>
 			<CssBaseline />
-			<Container waxWidth="lg">
+			<Container maxWidth="lg">
 				<Header sections={sections} />
+				<div className="wrapper">
+				<OrgPage />
+				</div>
 			</Container>
 		</>
 	);
