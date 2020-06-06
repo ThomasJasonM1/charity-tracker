@@ -4,9 +4,9 @@ import './App.css';
 import Dashboard from "./components/Dashboard";
 import Home from './pages/Home';
 import CharitySearch from './pages/CharitySearch';
-import Donate from'./pages/Donate';
 import Navbar from './components/Navbar';
 import Organization from "./pages/Organization";
+import Profile from "./pages/Profile";
 
 
 function App() {
@@ -47,8 +47,8 @@ function App() {
       <Route exact path={["/search"]}>
         <CharitySearch />
       </Route>
-			<Route exact path={["/donate"]}>
-        <Donate />
+			<Route exact path={["/profile"]}>
+        <Profile />
       </Route>
       <Route exact path={["/organization/:ein"]}>
         <Organization />

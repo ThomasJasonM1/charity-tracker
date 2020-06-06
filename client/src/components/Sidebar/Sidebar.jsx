@@ -57,8 +57,8 @@ const Sidebar = props => {
       icon: <ShoppingBasketIcon />
     },
     {
-      title: 'Account',
-      href: '/account',
+      title: 'Profile',
+      href: '/profile',
       icon: <AccountBoxIcon />
     }
   ];
