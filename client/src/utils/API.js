@@ -27,10 +27,10 @@ export default {
 	},
 	// General charity nav search
 	charityNavSearch: function (searchTerm) {
-		return axios.get("/api/charity/nav/" + searchTerm);
+		return axios.get("/api/charity/nav/name/" + searchTerm);
 	},
 	// Searches for a specific charity by EIN
 	charitySearchByEIN: function (ein) {
-		return axios.get("/api/charity/nav/" + ein);
+		return axios.get("/api/charity/nav/ein/" + ein);
 	}
 };

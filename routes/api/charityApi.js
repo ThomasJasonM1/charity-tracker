@@ -13,14 +13,14 @@ router
 	.delete(charityController.remove)
 	.post(charityController.create);
 
-router.route("/nav/:searchterm").get((req, res) => {
+router.route("/nav/name/:searchterm").get((req, res) => {
 	charityNav
 		.searchByName(req.params.searchterm)
 		.then((response) => res.json(response.data))
 		.catch((err) => console.log(err));
 });
 
-router.route("/nav/:ein").get((req, res) => {
+router.route("/nav/ein/:ein").get((req, res) => {
 	charityNav
 		.searchByEin(req.params.ein)
 		.then((response) => res.json(response.data))
@@ -36,7 +36,6 @@ router.route("/dbnav/:ein").get((req, res) => {
 	return Promise.all(apiCalls)
 		.then((response) => {
 			const navResponse = response[0].data;
-			console.log(response);
 			const dbResponse = response[0].data;
 
 			const allResultObj = {
