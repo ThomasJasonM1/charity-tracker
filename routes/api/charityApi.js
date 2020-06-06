@@ -36,11 +36,29 @@ router.route("/dbnav/:ein").get((req, res) => {
 	return Promise.all(apiCalls)
 		.then((response) => {
 			const navResponse = response[0].data;
-			const dbResponse = response[0].data;
+			const dbResponse = response[1];
 
 			const allResultObj = {
-				nav: navResponse,
-				db: dbResponse
+				fromCharityNav: {
+					name: navResponse.charityName,
+					missionStatement: navResponse.mission,
+					tagline: navResponse.tagline,
+					orgWebsite: navResponse.websiteURL,
+					email: navResponse.generalEmail,
+					phone: navResponse.phoneNumber,
+					navWebsite: navResponse.charityNavigatorURL,
+					category: navResponse.category.categoryName,
+					categoryImage: navResponse.category.image,
+					cause: navResponse.cause.causeName,
+					causeImage: navResponse.cause.image,
+					deductibility: navResponse.irsClassification.deductibility,
+					irsClassification:
+						navResponse.irsClassification.classification,
+					score: navResponse.currentRating.score,
+					rating: navResponse.currentRating.rating,
+					starRatingImage: navResponse.currentRating.ratingImage.large
+				},
+				fromDB: dbResponse
 			};
 
 			res.json(allResultObj);
