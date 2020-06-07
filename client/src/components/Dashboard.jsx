@@ -55,6 +55,7 @@ const Dashboard = (props) => {
         onClose={handleSidebarClose}
         open={shouldOpenSidebar}
         variant={isDesktop ? 'persistent' : 'temporary'}
+        currentUser={props.currentUser}
       />
     </div>
   );

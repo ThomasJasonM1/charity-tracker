@@ -5,10 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Divider, Drawer } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import SearchIcon from '@material-ui/icons/Search';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import SettingsIcon from '@material-ui/icons/Settings';
-import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 import { Profile, SidebarNav } from './components';
 
@@ -52,13 +49,8 @@ const Sidebar = props => {
       icon: <SearchIcon />
     },
     {
-      title: 'Calendar?',
-      href: '/calendar',
-      icon: <ShoppingBasketIcon />
-    },
-    {
-      title: 'Account',
-      href: '/account',
+      title: 'Profile',
+      href: '/profile',
       icon: <AccountBoxIcon />
     }
   ];
@@ -75,7 +67,7 @@ const Sidebar = props => {
         {...rest}
         className={clsx(classes.root, className)}
       >
-        <Profile />
+        <Profile currentUser={props.currentUser}/>
         <Divider className={classes.divider} />
         <SidebarNav
           className={classes.nav}

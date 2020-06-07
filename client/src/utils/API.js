@@ -9,13 +9,13 @@ export default {
 	adminLogin: function (credentials) {
 		return axios.post("/api/user/login", credentials);
 	},
+	//updates admin details
+	updateAdmin: function (id, updatedInfo) {
+		return axios.put("/api/user/"+ id, updatedInfo);
+	},
 
 	getAdmin: function (id) {
 		return axios.get("/api/user/" + id);
-	},
-
-	updateAdmin: function (id, adminData) {
-		return axios.put("/api/user/" + id, adminData);
 	},
 
 	/**************************************************
