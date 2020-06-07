@@ -46,6 +46,7 @@ function App() {
     <Dashboard 
       handleSignOut={handleSignOut}
       isSignedIn={currentUser.isSignedIn}
+      currentUser={currentUser}
       />
     <Switch>
       <Route exact path={["/", "/home"]}>
