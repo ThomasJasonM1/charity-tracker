@@ -5,6 +5,10 @@ export default {
 	adminLogin: function (credentials) {
 		return axios.post("/api/user/login", credentials);
 	},
+	//updates admin details
+	updateAdmin: function (id, updatedInfo) {
+		return axios.put("/api/user/"+ id, updatedInfo);
+	},
 
 	getDbCharity: function (ein) {
 		return axios.get("/api/charity/" + ein);

@@ -12,6 +12,7 @@ import {
   Button,
   TextField,
 } from "@material-ui/core";
+import API from "../utils/API";
 
 const useStyles = makeStyles(() => ({
   root: {},
@@ -20,8 +21,13 @@ const useStyles = makeStyles(() => ({
 const AccountDetails = (props) => {
   const { className, ...rest } = props;
 
-  const {  firstName, lastName, email, phone, username, password } = props.currentUser;
+  const {  _id, firstName, lastName, email, phone, username } = props.currentUser;
 
+  function updateUser() {
+    API.updateAdmin(_id, props.currentUser)
+    .then(console.log("user successfully updated", props.currentUser))
+    .catch((err) => console.log("An error occured", err));
+  }
 
   const classes = useStyles();
 
@@ -88,19 +94,6 @@ const AccountDetails = (props) => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Change Password"
-                margin="dense"
-                name="password"
-                type="password"
-                onChange={props.handleInputChange}
-                required
-                defaultValue=""
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
                 label="Username"
                 margin="dense"
                 name="username"
@@ -111,24 +104,13 @@ const AccountDetails = (props) => {
               />
             </Grid>
           </Grid>
-          <Grid item md={6} xs={12}>
-          <TextField
-                fullWidth
-                label="Confirm Password"
-                margin="dense"
-                name="confirmPassword"
-                type="password"
-                onChange={props.handleInputChange}
-                variant="outlined"
-              />
-          </Grid>
         </CardContent>
         <Divider />
         <CardActions>
           <Button 
             color="primary" 
             variant="contained"
-            onClick={()=>console.log(firstName)}
+            onClick={updateUser}
           >
             Save details
           </Button>

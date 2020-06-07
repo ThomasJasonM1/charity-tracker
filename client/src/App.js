@@ -26,7 +26,6 @@ function App() {
   function handleInputChange(event) {
     const { value, name } = event.target;
     setCurrentUser({ ...currentUser, [name]: value })
-    console.log(value);
   }
 
 
