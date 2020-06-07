@@ -50,7 +50,6 @@ function OrgPage() {
 			getResponse();
 		}
 	}, [org, ein]);
-	console.log(org);
 
 	function handleInputChange(event) {
 		const { name, value } = event.target;
