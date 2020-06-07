@@ -38,7 +38,10 @@ export default function SimplePopover(props) {
   const handleLogin = () => {
     API.adminLogin(formObject)
       .then((userDetails) => props.handleUserLogin(userDetails.data.dbUser))
-      .catch((err) => console.log("An error occured", err));
+      .catch((err) => {
+        console.log("An error occured", err)
+        alert("wrong password, try again!");
+      });
   };
 
   const open = Boolean(anchorEl);

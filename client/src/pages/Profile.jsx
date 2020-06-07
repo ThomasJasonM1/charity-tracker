@@ -22,7 +22,10 @@ const Profile = (props) => {
             />
           </Grid>
           <Grid item lg={4} md={6} xl={4} xs={12}>
-            <UpdatePassword currentUser={props.currentUser}/>
+            <UpdatePassword 
+             currentUser={props.currentUser}
+             handleInputChange={props.handleInputChange}
+            />
           </Grid>
         </Grid>
       </Container>
