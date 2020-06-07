@@ -15,7 +15,7 @@ const userSchema = new Schema({
     default: '',
   },
   phone: {
-    type: String,
+    type: Number,
     default: '',
   },
   image: {

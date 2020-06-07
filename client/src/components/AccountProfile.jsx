@@ -33,17 +33,10 @@ const useStyles = makeStyles(theme => ({
 const AccountProfile = props => {
   const { className, ...rest } = props;
 
+  const {  firstName, lastName, image, username } = props.currentUser;
+
   const classes = useStyles();
 
-  const user = {
-    firstName: "Thomas",
-    lastName: "Vajaynick",
-    email: "tvaj33@aol.com",
-    phone: "555-555-555",
-    image:
-      "https://akns-images.eonline.com/eol_images/Entire_Site/2015518/rs_300x300-150618104511-600.tom-myspace.jw.61815.jpg?fit=around|1200:1200&crop=1200:1200;center,top&output-quality=90",
-    username: "tvajj",
-  };
 
   return (
     <Card
@@ -57,14 +50,14 @@ const AccountProfile = props => {
               gutterBottom
               variant="h2"
             >
-              {user.firstName} {user.lastName}
+              {firstName} {lastName}
             </Typography>
             <Typography
               className={classes.locationText}
               color="textSecondary"
               variant="body1"
             >
-              {user.username}
+              {username}
             </Typography>
             <Typography
               className={classes.dateText}
@@ -76,7 +69,7 @@ const AccountProfile = props => {
           </div>
           <Avatar
             className={classes.avatar}
-            src={user.image}
+            src={image}
           />
         </div>
       </CardContent>

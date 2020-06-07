@@ -14,7 +14,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({ isSignedIn: false });
 
   function handleUserLogin(userDetails) {
-    console.log("Logged in successfully", userDetails);
+    console.log("Logged in successfully", userDetails.firstName);
     setCurrentUser({ ...userDetails, isSignedIn: true });
   }
 
@@ -22,6 +22,13 @@ function App() {
     console.log("Logging out user");
     setCurrentUser({ ...userDetails, isSignedIn: false });
   }
+
+  function handleInputChange(event) {
+    const { value, name } = event.target;
+    setCurrentUser({ ...currentUser, [name]: value })
+    console.log(value);
+  }
+
 
   if (!currentUser.isSignedIn) {
     return ( 
@@ -34,6 +41,7 @@ function App() {
       </>
     )
   }
+
   return (
     <>
     <Dashboard 
@@ -48,7 +56,10 @@ function App() {
         <CharitySearch />
       </Route>
 			<Route exact path={["/profile"]}>
-        <Profile />
+        <Profile 
+          currentUser={currentUser}
+          handleInputChange={handleInputChange}
+        />
       </Route>
       <Route exact path={["/organization/:ein"]}>
         <Organization />
@@ -57,5 +68,4 @@ function App() {
     </>
   )
 }
-
 export default App;

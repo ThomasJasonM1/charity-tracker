@@ -11,7 +11,6 @@ class Home extends Component {
 	};
 
 	render() {
-		console.log(this.props.isSignedIn);
 		return (
 			<>
 				<CssBaseline />

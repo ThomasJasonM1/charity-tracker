@@ -37,7 +37,7 @@ export default function SimplePopover(props) {
 
   const handleLogin = () => {
     API.adminLogin(formObject)
-      .then((userDetails) => props.handleUserLogin(userDetails.data))
+      .then((userDetails) => props.handleUserLogin(userDetails.data.dbUser))
       .catch((err) => console.log("An error occured", err));
   };
 
@@ -100,8 +100,8 @@ export default function SimplePopover(props) {
           </Popover>{" "}
         </>
       ) : (
-				<>
-        <Button
+        <>
+          <Button
             aria-describedby={id}
             variant="contained"
             color="primary"
@@ -109,29 +109,29 @@ export default function SimplePopover(props) {
           >
             Sign Out
           </Button>
-					<Popover
-					id={id}
-					open={open}
-					anchorEl={anchorEl}
-					onClose={handleClose}
-					anchorOrigin={{
-						vertical: "bottom",
-						horizontal: "center",
-					}}
-					transformOrigin={{
-						vertical: "top",
-						horizontal: "center",
-					}}
-				>
-					<h1>are you sure?</h1>
-					<Button style={{ marginLeft: "30%" }} onClick={props.handleSignOut}>
-                  Yes!
-          </Button>
-					<Button style={{ marginLeft: "30%" }} onClick={handleClose}>
-                  No!
-          </Button>
-					</Popover>
-					</>
+          <Popover
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
+          >
+            <h1>are you sure?</h1>
+            <Button style={{ marginLeft: "30%" }} onClick={props.handleSignOut}>
+              Yes!
+            </Button>
+            <Button style={{ marginLeft: "30%" }} onClick={handleClose}>
+              No!
+            </Button>
+          </Popover>
+        </>
       )}
     </div>
   );

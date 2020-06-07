@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,24 +20,10 @@ const useStyles = makeStyles(() => ({
 const AccountDetails = (props) => {
   const { className, ...rest } = props;
 
+  const {  firstName, lastName, email, phone, username, password } = props.currentUser;
+
+
   const classes = useStyles();
-
-  const [values, setValues] = useState({
-    firstName: "Thomas",
-    lastName: "Vajaynick",
-    email: "tvaj33@aol.com",
-    phone: 555555555,
-    image:
-      "https://akns-images.eonline.com/eol_images/Entire_Site/2015518/rs_300x300-150618104511-600.tom-myspace.jw.61815.jpg?fit=around|1200:1200&crop=1200:1200;center,top&output-quality=90",
-    username: "tvajj",
-  });
-
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value,
-    });
-  };
 
   return (
     <Card {...rest} className={clsx(classes.root, className)}>
@@ -56,9 +42,10 @@ const AccountDetails = (props) => {
                 label="First name"
                 margin="dense"
                 name="firstName"
-                onChange={handleChange}
+                onChange={props.handleInputChange}
                 required
-                value={values.firstName}
+                defaultValue={firstName}
+                value={firstName.value}
                 variant="outlined"
               />
             </Grid>
@@ -68,9 +55,9 @@ const AccountDetails = (props) => {
                 label="Last name"
                 margin="dense"
                 name="lastName"
-                onChange={handleChange}
+                onChange={props.handleInputChange}
                 required
-                value={values.lastName}
+                defaultValue={lastName}
                 variant="outlined"
               />
             </Grid>
@@ -80,9 +67,9 @@ const AccountDetails = (props) => {
                 label="Email Address"
                 margin="dense"
                 name="email"
-                onChange={handleChange}
+                onChange={props.handleInputChange}
                 required
-                value={values.email}
+                defaultValue={email}
                 variant="outlined"
               />
             </Grid>
@@ -92,9 +79,9 @@ const AccountDetails = (props) => {
                 label="Phone Number"
                 margin="dense"
                 name="phone"
-                onChange={handleChange}
+                onChange={props.handleInputChange}
                 type="number"
-                value={values.phone}
+                defaultValue={phone}
                 variant="outlined"
               />
             </Grid>
@@ -105,9 +92,9 @@ const AccountDetails = (props) => {
                 margin="dense"
                 name="password"
                 type="password"
-                onChange={handleChange}
+                onChange={props.handleInputChange}
                 required
-                value={values.password}
+                defaultValue=""
                 variant="outlined"
               />
             </Grid>
@@ -117,9 +104,9 @@ const AccountDetails = (props) => {
                 label="Username"
                 margin="dense"
                 name="username"
-                onChange={handleChange}
+                onChange={props.handleInputChange}
                 required
-                value={values.username}
+                defaultValue={username}
                 variant="outlined"
               />
             </Grid>
@@ -127,20 +114,22 @@ const AccountDetails = (props) => {
           <Grid item md={6} xs={12}>
           <TextField
                 fullWidth
-                label="Change Password"
+                label="Confirm Password"
                 margin="dense"
-                name="password"
+                name="confirmPassword"
                 type="password"
-                onChange={handleChange}
-                required
-                value={values.password}
+                onChange={props.handleInputChange}
                 variant="outlined"
               />
           </Grid>
         </CardContent>
         <Divider />
         <CardActions>
-          <Button color="primary" variant="contained">
+          <Button 
+            color="primary" 
+            variant="contained"
+            onClick={()=>console.log(firstName)}
+          >
             Save details
           </Button>
         </CardActions>

@@ -50,9 +50,10 @@ module.exports = {
             res.status(503).send("Server error occured");
           } if (match) {
             res.json({
-              staus: "success",
-              name: dbUser.firstName + "" + dbUser.lastName,
-              email: dbUser.email
+              // staus: "success",
+              // name: dbUser.firstName + "" + dbUser.lastName,
+              // email: dbUser.email
+              dbUser
             });
           } else {
             res.status(401).send("Unauthorized");

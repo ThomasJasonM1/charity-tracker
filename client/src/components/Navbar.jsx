@@ -31,7 +31,6 @@ const Navbar = (props) => {
         <IconButton color="inherit">
             <Popover 
               handleUserLogin={props.handleUserLogin}
-              handleSignOut={props.handleSignOut}
               isSignedIn={props.isSignedIn}
               />
           </IconButton>
@@ -40,7 +39,6 @@ const Navbar = (props) => {
         <Hidden mdDown>
           <IconButton color="inherit">
             <Popover 
-              handleUserLogin={props.handleUserLogin}
               handleSignOut={props.handleSignOut}
               isSignedIn={props.isSignedIn}
               />
@@ -48,8 +46,7 @@ const Navbar = (props) => {
         </Hidden>
         <Hidden lgUp>
         <IconButton color="inherit">
-            <Popover 
-              handleUserLogin={props.handleUserLogin}
+            <Popover
               handleSignOut={props.handleSignOut}
               isSignedIn={props.isSignedIn}
               />
