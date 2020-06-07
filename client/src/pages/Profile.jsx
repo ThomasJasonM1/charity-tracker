@@ -3,6 +3,7 @@ import { Grid, Container } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AccountProfile from "../components/AccountProfile";
 import AccountDetails from "../components/AccountDetails";
+import UpdatePassword from "../components/UpdatePassword";
 
 const Profile = (props) => {
 
@@ -19,6 +20,9 @@ const Profile = (props) => {
               currentUser={props.currentUser}
               handleInputChange={props.handleInputChange}  
             />
+          </Grid>
+          <Grid item lg={4} md={6} xl={4} xs={12}>
+            <UpdatePassword currentUser={props.currentUser}/>
           </Grid>
         </Grid>
       </Container>

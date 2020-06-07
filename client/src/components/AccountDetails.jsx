@@ -35,7 +35,6 @@ const AccountDetails = (props) => {
     <Card {...rest} className={clsx(classes.root, className)}>
       <form autoComplete="off" noValidate>
         <CardHeader
-          subheader="The information can be edited"
           title="Edit Profile"
         />
         <Divider />
@@ -44,7 +43,6 @@ const AccountDetails = (props) => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                helperText="Please specify the first name"
                 label="First name"
                 margin="dense"
                 name="firstName"
