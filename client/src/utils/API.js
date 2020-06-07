@@ -18,10 +18,6 @@ export default {
 		return axios.get("/api/user/" + id);
 	},
 
-	updateAdmin: function (id, adminData) {
-		return axios.put("/api/user/" + id, adminData);
-	},
-
 	/**************************************************
 	 * Calls to charity collection in our charityTracker DB
 	 **************************************************/
