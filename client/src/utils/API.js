@@ -10,11 +10,11 @@ export default {
 		return axios.post("/api/user/login", credentials);
 	},
 
-	getDbAdmin: function (id) {
+	getAdmin: function (id) {
 		return axios.get("/api/user/" + id);
 	},
 
-	updateDbAdmin: function (id, adminData) {
+	updateAdmin: function (id, adminData) {
 		return axios.put("/api/user/" + id, adminData);
 	},
 
