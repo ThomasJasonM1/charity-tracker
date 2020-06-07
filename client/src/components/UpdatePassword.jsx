@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -19,6 +19,10 @@ const useStyles = makeStyles(() => ({
 const UpdatePassword = (props) => {
   const { className, ...rest } = props;
 
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
+
+
   const classes = useStyles();
 
   return ( 
@@ -36,9 +40,12 @@ const UpdatePassword = (props) => {
                 helperText="Passwords must be at least 8 characters in length"
                 label="New Password"
                 margin="dense"
-                name="password"
+                name="newPassword"
+                type="password"
                 required
+                onChange={event => setNewPassword(event.target.value)}
                 defaultValue=""
+                value={newPassword}
                 variant="outlined"
               />
           </Grid>
@@ -47,9 +54,12 @@ const UpdatePassword = (props) => {
                 fullWidth
                 label="Confirm Password"
                 margin="dense"
-                name="password"
+                name="confirmedPassword"
+                type="password"
                 required
+                onChange={event => setConfirmedPassword(event.target.value)}
                 defaultValue=""
+                value={confirmedPassword}
                 variant="outlined"
               />
           </Grid>
@@ -60,6 +70,7 @@ const UpdatePassword = (props) => {
           <Button 
             color="primary" 
             variant="contained"
+            onClick={()=>console.log(newPassword + confirmedPassword)}
           >
             Update Password
           </Button>
