@@ -1,15 +1,30 @@
 import axios from "axios";
 
-
 export default {
+	/**************************************************
+	 * Calls to user collection in our charityTracker DB - more of these can be added, if need be.
+	 **************************************************/
 
 	// Signs in an admin
 	adminLogin: function (credentials) {
 		return axios.post("/api/user/login", credentials);
 	},
-	// Get charity from the db via id
-	getDbCharity: function (id) {
-		return axios.get("/api/charity/" + id);
+	//updates admin details
+	updateAdmin: function (id, updatedInfo) {
+		return axios.put("/api/user/"+ id, updatedInfo);
+	},
+
+	getAdmin: function (id) {
+		return axios.get("/api/user/" + id);
+	},
+
+	/**************************************************
+	 * Calls to charity collection in our charityTracker DB
+	 **************************************************/
+
+	// Gets a charity from th db by ein
+	getDbCharity: function (ein) {
+		return axios.get("/api/charity/" + ein);
 	},
 	// Get all charities from the db
 	getDbCharities: function () {
@@ -28,11 +43,24 @@ export default {
 		return axios.delete("/api/charity/" + id);
 	},
 
+	/**************************************************
+	 * Calls to third party charityNav API
+	 **************************************************/
+
+	// Search for charity by name - also accepts ein
 	charityNavSearch: function (searchTerm) {
-		return axios.get("/api/charity/nav/" + searchTerm);
+		return axios.get("/api/charity/nav/name/" + searchTerm);
+	},
+	// Searches for a specific charity by EIN
+	charitySearchByEIN: function (ein) {
+		return axios.get("/api/charity/nav/ein/" + ein);
 	},
 
-	charitySearchByEIN: function (ein) {
-		return axios.get("/api/charity/nav/" + ein);
+	/**************************************************
+	 * Calls to our DB and to the third party charityNav API - returns a combined response from both
+	 **************************************************/
+
+	charityDbAndNavSearchByEIN: function (ein) {
+		return axios.get("/api/charity/dbnav" + ein);
 	}
 };

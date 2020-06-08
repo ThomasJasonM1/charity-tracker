@@ -26,11 +26,7 @@ const Profile = props => {
 
   const classes = useStyles();
 
-  const user = {
-    name: 'Tom Vajaynick',
-    avatar: 'https://akns-images.eonline.com/eol_images/Entire_Site/2015518/rs_300x300-150618104511-600.tom-myspace.jw.61815.jpg?fit=around|1200:1200&crop=1200:1200;center,top&output-quality=90',
-    bio: 'HR Manager'
-  };
+  const { firstName, lastName, username, image } = props.currentUser
 
   return (
     <div
@@ -41,16 +37,16 @@ const Profile = props => {
         alt="Person"
         className={classes.avatar}
         component={RouterLink}
-        src={user.avatar}
+        src={image}
         to="/settings"
       />
       <Typography
         className={classes.name}
         variant="h4"
       >
-        {user.name}
+        {firstName} {lastName}
       </Typography>
-      <Typography variant="body2">{user.bio}</Typography>
+      <Typography variant="body2">{username}</Typography>
     </div>
   );
 };

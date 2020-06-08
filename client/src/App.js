@@ -4,9 +4,9 @@ import './App.css';
 import Dashboard from "./components/Dashboard";
 import Home from './pages/Home';
 import CharitySearch from './pages/CharitySearch';
-import Donate from'./pages/Donate';
 import Navbar from './components/Navbar';
 import Organization from "./pages/Organization";
+import Profile from "./pages/Profile";
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({ isSignedIn: false });
 
   function handleUserLogin(userDetails) {
-    console.log("Logged in successfully", userDetails);
+    console.log("Logged in successfully", userDetails.firstName);
     setCurrentUser({ ...userDetails, isSignedIn: true });
   }
 
@@ -22,6 +22,12 @@ function App() {
     console.log("Logging out user");
     setCurrentUser({ ...userDetails, isSignedIn: false });
   }
+
+  function handleInputChange(event) {
+    const { value, name } = event.target;
+    setCurrentUser({ ...currentUser, [name]: value })
+  }
+
 
   if (!currentUser.isSignedIn) {
     return ( 
@@ -34,11 +40,13 @@ function App() {
       </>
     )
   }
+
   return (
     <>
     <Dashboard 
       handleSignOut={handleSignOut}
       isSignedIn={currentUser.isSignedIn}
+      currentUser={currentUser}
       />
     <Switch>
       <Route exact path={["/", "/home"]}>
@@ -47,8 +55,11 @@ function App() {
       <Route exact path={["/search"]}>
         <CharitySearch />
       </Route>
-			<Route exact path={["/donate"]}>
-        <Donate />
+			<Route exact path={["/profile"]}>
+        <Profile 
+          currentUser={currentUser}
+          handleInputChange={handleInputChange}
+        />
       </Route>
       <Route exact path={["/organization/:ein"]}>
         <Organization />
@@ -57,5 +68,4 @@ function App() {
     </>
   )
 }
-
 export default App;

@@ -27,8 +27,13 @@ module.exports = {
       .catch(err => res.status(503).json(err));
   },
   update: (req, res) => {
-    User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+    const { firstName, lastName, email, phone, image, username, password } = req.body;
+    const updatedUser = { firstName, lastName, email, phone, image, username, password };
+
+      updatedUser.password = bcrypt.hashSync(password, 10);
+
+      User
+      .findOneAndUpdate({ _id: req.params.id }, updatedUser)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -50,9 +55,10 @@ module.exports = {
             res.status(503).send("Server error occured");
           } if (match) {
             res.json({
-              staus: "success",
-              name: dbUser.firstName + "" + dbUser.lastName,
-              email: dbUser.email
+              // staus: "success",
+              // name: dbUser.firstName + "" + dbUser.lastName,
+              // email: dbUser.email
+              dbUser
             });
           } else {
             res.status(401).send("Unauthorized");
