@@ -264,11 +264,11 @@ function OrgPage() {
 			<br />
 			<br />
 
-			<h3>Upcoming Events: ((calendar??))</h3>
+			<h5>Upcoming Events: ((calendar??))</h5>
 			<br />
 			<br />
 
-			<h3>
+			<h5>
 				IRS Classification:{" "}
 				<span id="irsClass">
 					{org.irsClassification &&
@@ -279,7 +279,7 @@ function OrgPage() {
 					{org.irsClassification &&
 						org.irsClassification.deductibility}
 				</span>
-			</h3>
+			</h5>
 			<br />
 			<br />
 		</Container>
