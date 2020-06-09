@@ -14,6 +14,10 @@ import {
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    margin: 16,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   media: {
     height: 140,
@@ -24,19 +28,10 @@ const CharityCard = (props) => {
   const classes = useStyles();
   const { name, image, about, id, isSignedIn, showEdit } = props.charity;
 
-  const styles = {
-    card: {
-      margin: 16,
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-    },
-  };
-
   return (
     <>
       <Grid item key={id} xs={12} sm={6} md={4}>
-        <Card style={styles.card} className={classes.root}>
+        <Card className={classes.root}>
           <CardMedia className={classes.media} image={image} title={name} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
