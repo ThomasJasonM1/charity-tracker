@@ -36,7 +36,7 @@ function OrgPage() {
 	const { ein } = useParams();
 	useEffect(() => {
 		API.getDbCharity(ein)
-			.then((res) => setCharityData(res.data))
+			.then((res) => setCharityData(res.data || {}))
 			.catch((err) => console.log(err));
 
 		if (!org) {
@@ -53,7 +53,8 @@ function OrgPage() {
 
 	function handleInputChange(event) {
 		const { name, value } = event.target;
-		setCharityData({ ...charityData, [name]: value });
+		setCharityData({ ...charityData.contact, [name]: value });
+		console.log(charityData);
 	}
 
 	const handleAddOrg = (event) => {
@@ -83,7 +84,7 @@ function OrgPage() {
 
 		const id = ein;
 		API.updateDbCharity(id, {
-			ein: ein,
+			ein: id,
 			isDonationPartner: charityData.isDonationPartner,
 			isVolunteerPartner: charityData.isVolunteerPartner,
 			contact: {
@@ -185,7 +186,7 @@ function OrgPage() {
 						row
 						aria-label="position"
 						name="position"
-						defaultValue="start"
+						defaultValue="start"						
 					>
 						<FormControlLabel
 							value="true"
@@ -194,6 +195,7 @@ function OrgPage() {
 							label="Yes"
 							labelPlacement="start"
 							onChange={handleInputChange}
+							checked={charityData && charityData.isDonationPartner === true ? "checked" : ""}
 						/>
 						<FormControlLabel
 							value="false"
@@ -202,6 +204,7 @@ function OrgPage() {
 							label="No"
 							labelPlacement="start"
 							onChange={handleInputChange}
+							checked={charityData && charityData.isDonationPartner === false ? "checked" : ""}
 						/>
 					</RadioGroup>
 				</FormControl>
@@ -228,6 +231,7 @@ function OrgPage() {
 							label="Yes"
 							labelPlacement="start"
 							onChange={handleInputChange}
+							checked={charityData && charityData.isVolunteerPartner === true ? "checked" : ""}
 						/>
 						<FormControlLabel
 							value="false"
@@ -236,6 +240,7 @@ function OrgPage() {
 							label="No"
 							labelPlacement="start"
 							onChange={handleInputChange}
+							checked={charityData && charityData.isVolunteerPartner === false ? "checked" : ""}
 						/>
 					</RadioGroup>
 				</FormControl>
