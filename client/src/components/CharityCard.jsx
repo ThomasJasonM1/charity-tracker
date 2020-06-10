@@ -47,9 +47,9 @@ const CharityCard = (props) => {
 					<CardActions>
 						<Link to={"/organization/" + id}>View</Link>
 						{isSignedIn && showEdit ? (
-							<Button size="small" color="primary">
+							<Link to={"/organization/" + id}>
 								Edit
-							</Button>
+							</Link>
 						) : null}
 					</CardActions>
 				</Card>
