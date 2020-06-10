@@ -73,6 +73,7 @@ function OrgPage() {
 			},
 			howWeCanHelp: charityData.howWeCanHelp,
 			missionStatement: org.mission,
+			charityName: org.charityName,
 			events: charityData.events
 		})
 			.then(() => {

@@ -41,6 +41,10 @@ const charitySchema = new mongoose.Schema({
 		type: String,
 		default: ""
 	},
+	charityName: {
+		type: String,
+		default: ""
+	},
 	events: {
 		type: Array,
 		default: []
