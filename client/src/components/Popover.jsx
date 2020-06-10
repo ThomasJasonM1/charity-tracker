@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Popover from "@material-ui/core/Popover";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+import {
+  Button,
+  TextField,
+  Typography,
+  Divider,
+  Popover,
+} from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
-import TextField from "@material-ui/core/TextField";
 import API from "../utils/API";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +42,7 @@ export default function SimplePopover(props) {
     API.adminLogin(formObject)
       .then((userDetails) => props.handleUserLogin(userDetails.data.dbUser))
       .catch((err) => {
-        console.log("An error occured", err)
+        console.log("An error occured", err);
         alert("wrong password, try again!");
       });
   };
@@ -75,27 +78,39 @@ export default function SimplePopover(props) {
           >
             <Typography className={classes.typography}>
               <form>
-                <h3>Administrator Login</h3>
+                <h4>Administrator Login</h4>
+                <Divider style={{marginBottom: "15px"}}/>
                 <TextField
                   onid="standard-basic"
+                  fullWidth
                   label="Username"
                   name="username"
                   value={formObject.username}
                   onChange={handleInputChange}
+                  margin="dense"
+                  variant="outlined"
                 />
                 <br />
                 <br />
                 <TextField
+                  fullWidth
                   id="standard-basic"
                   label="Password"
                   name="password"
                   type="password"
                   value={formObject.password}
                   onChange={handleInputChange}
+                  margin="dense"
+                  variant="outlined"
                 />
                 <br />
                 <br />
-                <Button style={{ marginLeft: "30%" }} onClick={handleLogin}>
+                <Button
+                  style={{ marginLeft: "30%" }}
+                  onClick={handleLogin}
+                  color="primary"
+                  variant="contained"
+                >
                   Login
                 </Button>
               </form>

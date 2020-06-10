@@ -25,7 +25,7 @@ function App() {
 
   function handleInputChange(event) {
     const { value, name } = event.target;
-    if (name == 'password') currentUser.passwordUpdated = true; 
+    if (name === 'password') currentUser.passwordUpdated = true; 
     setCurrentUser({ ...currentUser, [name]: value })
   }
 
