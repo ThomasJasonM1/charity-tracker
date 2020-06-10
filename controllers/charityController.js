@@ -22,7 +22,7 @@ module.exports = {
 			.catch((err) => res.status(422).json(err));
 	},
 	update: (req, res) => {
-		Charity.findOneAndUpdate({ ein: req.params.id }, req.body)
+		Charity.findOneAndUpdate({ ein: req.params.ein }, req.body)
 			.then((dbModel) => res.json(dbModel))
 			.catch((err) => res.status(422).json(err));
 	},

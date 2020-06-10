@@ -5,10 +5,10 @@ import {
 	FormControl,
 	FormControlLabel,
 	FormLabel,
-	Radio,
 	RadioGroup,
 	Fab,
-	makeStyles
+	makeStyles,
+	Switch
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import EditIcon from "@material-ui/icons/Edit";
@@ -52,10 +52,14 @@ function OrgPage() {
 	}, [org, ein]);
 
 	function handleInputChange(event) {
-		const { name, value } = event.target;
-		setCharityData({ ...charityData.contact, [name]: value });
-		console.log(charityData);
+		let { name, value } = event.target;
+		setCharityData({ ...charityData, [name]: value });
 	}
+
+	const handleChange = (event) => {
+    setCharityData({ ...charityData, [event.target.name]: event.target.checked });
+	};
+	console.log(charityData);
 
 	const handleAddOrg = (event) => {
 		event.preventDefault();
@@ -81,10 +85,11 @@ function OrgPage() {
 
 	const handleEditOrg = (event) => {
 		event.preventDefault();
+		console.log(charityData);
 
-		const id = ein;
+		const id = charityData.ein;
 		API.updateDbCharity(id, {
-			ein: id,
+			ein: charityData.ein,
 			isDonationPartner: charityData.isDonationPartner,
 			isVolunteerPartner: charityData.isVolunteerPartner,
 			contact: {
@@ -189,23 +194,14 @@ function OrgPage() {
 						defaultValue="start"						
 					>
 						<FormControlLabel
-							value="true"
 							name="isDonationPartner"
-							control={<Radio color="primary" />}
-							label="Yes"
+							control={<Switch color="primary"  />}
+							// label="Yes"
 							labelPlacement="start"
-							onChange={handleInputChange}
-							checked={charityData && charityData.isDonationPartner === true ? "checked" : ""}
+							onChange={handleChange}
+							checked={charityData.isDonationPartner || false}
 						/>
-						<FormControlLabel
-							value="false"
-							name="isDonationPartner"
-							control={<Radio color="primary" />}
-							label="No"
-							labelPlacement="start"
-							onChange={handleInputChange}
-							checked={charityData && charityData.isDonationPartner === false ? "checked" : ""}
-						/>
+
 					</RadioGroup>
 				</FormControl>
 				<br />
@@ -225,23 +221,14 @@ function OrgPage() {
 						defaultValue="start"
 					>
 						<FormControlLabel
-							value="true"
 							name="isVolunteerPartner"
-							control={<Radio color="primary" />}
-							label="Yes"
+							control={<Switch color="primary"  />}
+							// label="Yes"
 							labelPlacement="start"
-							onChange={handleInputChange}
-							checked={charityData && charityData.isVolunteerPartner === true ? "checked" : ""}
+							onChange={handleChange}
+							checked={charityData.isVolunteerPartner || false}
 						/>
-						<FormControlLabel
-							value="false"
-							name="isVolunteerPartner"
-							control={<Radio color="primary" />}
-							label="No"
-							labelPlacement="start"
-							onChange={handleInputChange}
-							checked={charityData && charityData.isVolunteerPartner === false ? "checked" : ""}
-						/>
+
 					</RadioGroup>
 				</FormControl>
 				<br />
