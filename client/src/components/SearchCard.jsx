@@ -8,8 +8,7 @@ import {
 	CardMedia,
 	CardContent,
 	CardActions,
-	Typography,
-	Button
+	Typography
 } from "@material-ui/core";
 
 const useStyles = makeStyles({
@@ -53,9 +52,8 @@ const SearchCard = (props) => {
 					</CardContent>
 					<CardActions>
 						<Link to={"/organization/" + ein}>View</Link>
-						<Button size="small" color="primary">
-							Edit
-						</Button>
+						{/* <Link to={"/organization/" + ein}>Edit</Link> */}
+
 					</CardActions>
 				</Card>
 			</motion.div>
