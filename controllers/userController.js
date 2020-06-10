@@ -27,10 +27,11 @@ module.exports = {
       .catch(err => res.status(503).json(err));
   },
   update: (req, res) => {
-    const { firstName, lastName, email, phone, image, username, password } = req.body;
+    const { firstName, lastName, email, phone, image, username, password, passwordUpdated } = req.body;
     const updatedUser = { firstName, lastName, email, phone, image, username, password };
 
-      updatedUser.password = bcrypt.hashSync(password, 10);
+      if(passwordUpdated == true) 
+        { updatedUser.password = bcrypt.hashSync(password, 10);}
 
       User
       .findOneAndUpdate({ _id: req.params.id }, updatedUser)
