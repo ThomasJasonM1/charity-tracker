@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { makeStyles } from "@material-ui/core/styles";
 import {
 	Grid,
@@ -24,10 +25,11 @@ const useStyles = makeStyles({
 const SearchCard = (props) => {
 	const classes = useStyles();
 	const { charityName, image, irsClassification, ein } = props.charity;
+	console.log(props.variant);
 
 	return (
-		<>
-			<Grid item key={props.charity.ein} xs={12} sm={6} md={4}>
+		<Grid item key={props.charity.ein} xs={12} sm={6} md={4}>
+			<motion.div variants={props.variant}>
 				<Card className={classes.root}>
 					<CardMedia
 						className={classes.media}
@@ -50,18 +52,14 @@ const SearchCard = (props) => {
 						<Typography>EIN: {ein}</Typography>
 					</CardContent>
 					<CardActions>
-
-						<Link to={"/organization/" + ein}
-						>
-								View
-						</Link>
+						<Link to={"/organization/" + ein}>View</Link>
 						<Button size="small" color="primary">
 							Edit
 						</Button>
 					</CardActions>
 				</Card>
-			</Grid>
-		</>
+			</motion.div>
+		</Grid>
 	);
 };
 
