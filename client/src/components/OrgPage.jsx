@@ -31,7 +31,9 @@ function OrgPage() {
 	const classes = useStyles();
 
 	const [org, setOrg] = useState("");
-	const [charityData, setCharityData] = useState({});
+	const [charityData, setCharityData] = useState({
+		isDonationPartner: false
+	});
 
 	const { ein } = useParams();
 	useEffect(() => {
@@ -70,6 +72,7 @@ function OrgPage() {
 				phone: charityData.phone
 			},
 			howWeCanHelp: charityData.howWeCanHelp,
+			missionStatement: org.mission,
 			events: charityData.events
 		})
 			.then(() => {
