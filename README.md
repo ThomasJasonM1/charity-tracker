@@ -1,68 +1,81 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Charity Tracker
 
-## Available Scripts
+## Description
+This application allows a user to save charities to a database and add/update contact information and best ways to help. The app was specifically designed with businesses in mind, ideally with one employee or department (the "Admin") contacting charities with which the company would like to partner and establishing a working relationship. The app would then allow all company employees to view the list of partnered charities, and decide from there if they would like to donate, volunteer, etc.
 
-In the project directory, you can run:
+Future instances of the app would provide a calender of events through which employees could sign up to attend, buy a table, or volunteer. There would also be a method to donate directly to any charity from the app, with contributions being automatically matched if the company donation matches with that specific organization.
 
-### `yarn start`
+User Story
+As a company dedicated to partnering with charities
+I want an app that allows me to search for and save charities into a database
+So that my employees can more readily find, connect with, and contribute to charities
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
+1. [Creators](#creators)
+2. [Technologies](#technologies)
+2. [Usage](#usage)
+3. [License](#license)
+4. [Contributing](#contributing)
+5. [Questions](#questions)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Creators
+<p id="creators"></p>
 
-### `yarn test`
+<a href="https://github.com/ThomasJasonM1" target="blank">Thomas Jason</a>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<a href="https://github.com/nwuerz" target="blank">Nick Wuerz</a>
 
-### `yarn build`
+<a href="https://github.com/V-Earl" target="blank">Valerie Earl</a>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<a href="https://github.com/tldav" target="blank">Thomas Davis</a>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<a href="https://github.com/kayla8693" target="blank">Kayla Gordon</a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies
+<p id='technologies'></p>
 
-### `yarn eject`
+- React
+- Charity Navigator API
+- Node.js
+- Express.js
+- MongoDB/Mongoose
+- bcrypt
+- Framer Motion
+- Material-UI
+- React-Bootstrap
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Usage
+<p id='usage'></p>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## License
+<p id='license'></p>
+<img alt='licenseBadge' src='https://img.shields.io/badge/License-MIT License-BLUE'>
+  <br /><br />
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-### Code Splitting
+## Contributing
+<p id='contributing'></p>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+If you would like to contribute to this project you can:
 
-### Analyzing the Bundle Size
+- Either fork or clone this repo (https://github.com/ThomasJasonM1/charity-tracker)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- Add any changes/upgrades you would like
 
-### Making a Progressive Web App
+- Update the README with changes made, new technologies used, etc.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Create a new pull request using https://github.com/ThomasJasonM1/charity-tracker/compare
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Questions
+<p id='questions'></p>
 
-### Deployment
+If you have questions about this application, please reach out to the creators via the email on their respective GitHub profiles, provided above.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
