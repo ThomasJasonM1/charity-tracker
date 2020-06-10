@@ -53,16 +53,6 @@ export function FormattedInputs(props) {
     <Container>
       <form className={classes.root} noValidate autoComplete="off">
         <div>
-
-          {/* <TextField
-          name="firstName"
-          // value={props.charityData.contact && props.charityData.contact.firstName}
-          InputLabelProps={{ shrink: true }}
-          label="First Name"
-          size="small"
-          onChange={props.handleInputChange}
-        /> */}
-
           <Form>
             <Row>
               <Col>
@@ -109,32 +99,8 @@ export function FormattedInputs(props) {
               </Col>
             </Row>
           </Form>
-          {/* <TextField
-          name="lastName"
-          // value={props.charityData.contact && props.charityData.contact.lastName}
-          InputLabelProps={{ shrink: true }}
-          label="Last Name"
-          size="small"
-          onChange={props.handleInputChange}
-        />
-        <TextField
-          name="email"
-          // value={props.charityData.contact && props.charityData.contact.email}
-          label="Email"
-          InputLabelProps={{ shrink: true }}
-          size="small"
-          onChange={props.handleInputChange}
-        />
-        <br /><br />
-        <InputLabel htmlFor="formatted-text-mask-input">Phone</InputLabel>
-        <Input
-          name="phone"
-          // value={props.charityData.contact && props.charityData.contact.phone}
-          id="formatted-text-mask-input"
-          inputComponent={TextMaskCustom}
-          onChange={props.handleInputChange}
-        /> */}
         </div><br />
+        
         <div>
           <h5 className="orgContact">Organization Contact Info</h5>
 

@@ -5,10 +5,10 @@ import {
 	FormControl,
 	FormControlLabel,
 	FormLabel,
-	Radio,
 	RadioGroup,
 	Fab,
-	makeStyles
+	makeStyles,
+	Switch
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import EditIcon from "@material-ui/icons/Edit";
@@ -38,7 +38,7 @@ function OrgPage() {
 	const { ein } = useParams();
 	useEffect(() => {
 		API.getDbCharity(ein)
-			.then((res) => setCharityData(res.data))
+			.then((res) => setCharityData(res.data || {}))
 			.catch((err) => console.log(err));
 
 		if (!org) {
@@ -54,9 +54,14 @@ function OrgPage() {
 	}, [org, ein]);
 
 	function handleInputChange(event) {
-		const { name, value } = event.target;
+		let { name, value } = event.target;
 		setCharityData({ ...charityData, [name]: value });
 	}
+
+	const handleChange = (event) => {
+    setCharityData({ ...charityData, [event.target.name]: event.target.checked });
+	};
+	console.log(charityData);
 
 	const handleAddOrg = (event) => {
 		event.preventDefault();
@@ -84,10 +89,11 @@ function OrgPage() {
 
 	const handleEditOrg = (event) => {
 		event.preventDefault();
+		console.log(charityData);
 
-		const id = ein;
+		const id = charityData.ein;
 		API.updateDbCharity(id, {
-			ein: ein,
+			ein: charityData.ein,
 			isDonationPartner: charityData.isDonationPartner,
 			isVolunteerPartner: charityData.isVolunteerPartner,
 			contact: {
@@ -164,8 +170,7 @@ function OrgPage() {
 				defaultValue={org.tagLine}
 				// onChange={handleChange}
 			/>
-			<br />
-			<br />
+			<br /><br />
 
 			<h5>Mission Statement:</h5>
 			<textarea
@@ -189,24 +194,17 @@ function OrgPage() {
 						row
 						aria-label="position"
 						name="position"
-						defaultValue="start"
+						defaultValue="start"						
 					>
 						<FormControlLabel
-							value="true"
 							name="isDonationPartner"
-							control={<Radio color="primary" />}
-							label="Yes"
+							control={<Switch color="primary"  />}
+							// label="Yes"
 							labelPlacement="start"
-							onChange={handleInputChange}
+							onChange={handleChange}
+							checked={charityData.isDonationPartner || false}
 						/>
-						<FormControlLabel
-							value="false"
-							name="isDonationPartner"
-							control={<Radio color="primary" />}
-							label="No"
-							labelPlacement="start"
-							onChange={handleInputChange}
-						/>
+
 					</RadioGroup>
 				</FormControl>
 				<br />
@@ -226,21 +224,14 @@ function OrgPage() {
 						defaultValue="start"
 					>
 						<FormControlLabel
-							value="true"
 							name="isVolunteerPartner"
-							control={<Radio color="primary" />}
-							label="Yes"
+							control={<Switch color="primary"  />}
+							// label="Yes"
 							labelPlacement="start"
-							onChange={handleInputChange}
+							onChange={handleChange}
+							checked={charityData.isVolunteerPartner || false}
 						/>
-						<FormControlLabel
-							value="false"
-							name="isVolunteerPartner"
-							control={<Radio color="primary" />}
-							label="No"
-							labelPlacement="start"
-							onChange={handleInputChange}
-						/>
+
 					</RadioGroup>
 				</FormControl>
 				<br />
@@ -267,11 +258,11 @@ function OrgPage() {
 			<br />
 			<br />
 
-			<h3>Upcoming Events: ((calendar??))</h3>
+			<h5>Upcoming Events: ((calendar??))</h5>
 			<br />
 			<br />
 
-			<h3>
+			<h5>
 				IRS Classification:{" "}
 				<span id="irsClass">
 					{org.irsClassification &&
@@ -282,7 +273,7 @@ function OrgPage() {
 					{org.irsClassification &&
 						org.irsClassification.deductibility}
 				</span>
-			</h3>
+			</h5>
 			<br />
 			<br />
 		</Container>
