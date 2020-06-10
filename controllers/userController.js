@@ -35,31 +35,17 @@ module.exports = {
 
 		newUser.password = bcrypt.hashSync(req.body.password, 10);
 
-		User.create(newUser)
-			.then((dbUser) => res.json({ status: "success" }))
-			.catch((err) => res.status(503).json(err));
-	},
-	update: (req, res) => {
-		const {
-			firstName,
-			lastName,
-			email,
-			phone,
-			image,
-			username,
-			password
-		} = req.body;
-		const updatedUser = {
-			firstName,
-			lastName,
-			email,
-			phone,
-			image,
-			username,
-			password
-		};
+    User
+      .create(newUser)
+      .then((dbUser) => res.json({ status: "success" }))
+      .catch(err => res.status(503).json(err));
+  },
+  update: (req, res) => {
+    const { firstName, lastName, email, phone, image, username, password, passwordUpdated } = req.body;
+    const updatedUser = { firstName, lastName, email, phone, image, username, password };
 
-		updatedUser.password = bcrypt.hashSync(password, 10);
+      if(passwordUpdated == true) 
+        { updatedUser.password = bcrypt.hashSync(password, 10);}
 
 		User.findOneAndUpdate({ _id: req.params.id }, updatedUser)
 			.then((dbModel) => res.json(dbModel))

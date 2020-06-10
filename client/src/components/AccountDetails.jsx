@@ -25,7 +25,10 @@ const AccountDetails = (props) => {
 
   function updateUser() {
     API.updateAdmin(_id, props.currentUser)
-    .then(console.log("user successfully updated", props.currentUser))
+    .then(() => {
+      console.log("user successfully updated", props.currentUser);
+      alert("Profile successfully updated!");
+    })
     .catch((err) => console.log("An error occured", err));
   }
 

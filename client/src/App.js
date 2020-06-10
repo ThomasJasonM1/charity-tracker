@@ -11,7 +11,7 @@ import Profile from "./pages/Profile";
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState({ isSignedIn: false });
+  const [currentUser, setCurrentUser] = useState({ isSignedIn: false, passwordUpdated: false });
 
   function handleUserLogin(userDetails) {
     console.log("Logged in successfully", userDetails.firstName);
@@ -25,6 +25,7 @@ function App() {
 
   function handleInputChange(event) {
     const { value, name } = event.target;
+    if (name === 'password') currentUser.passwordUpdated = true; 
     setCurrentUser({ ...currentUser, [name]: value })
   }
 

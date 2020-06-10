@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Popover from "@material-ui/core/Popover";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+import {
+  Button,
+  TextField,
+  Popover,
+  Card,
+  CardContent,
+  CardHeader
+} from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
-import TextField from "@material-ui/core/TextField";
 import API from "../utils/API";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +43,7 @@ export default function SimplePopover(props) {
     API.adminLogin(formObject)
       .then((userDetails) => props.handleUserLogin(userDetails.data.dbUser))
       .catch((err) => {
-        console.log("An error occured", err)
+        console.log("An error occured", err);
         alert("wrong password, try again!");
       });
   };
@@ -73,34 +77,47 @@ export default function SimplePopover(props) {
               horizontal: "center",
             }}
           >
-            <Typography className={classes.typography}>
+            <Card>
+              <CardContent>
               <form>
-                <h3>Administrator Login</h3>
+                <CardHeader title="Administrator Login"/>
                 <TextField
                   onid="standard-basic"
+                  fullWidth
                   label="Username"
                   name="username"
                   value={formObject.username}
                   onChange={handleInputChange}
+                  margin="dense"
+                  variant="outlined"
                 />
                 <br />
                 <br />
                 <TextField
+                  fullWidth
                   id="standard-basic"
                   label="Password"
                   name="password"
                   type="password"
                   value={formObject.password}
                   onChange={handleInputChange}
+                  margin="dense"
+                  variant="outlined"
                 />
                 <br />
                 <br />
-                <Button style={{ marginLeft: "30%" }} onClick={handleLogin}>
+                <Button
+                  style={{ marginLeft: "30%" }}
+                  onClick={handleLogin}
+                  color="primary"
+                  variant="contained"
+                >
                   Login
                 </Button>
               </form>
-            </Typography>
-          </Popover>{" "}
+              </CardContent>
+            </Card>  
+          </Popover>
         </>
       ) : (
         <>
@@ -126,13 +143,29 @@ export default function SimplePopover(props) {
               horizontal: "center",
             }}
           >
-            <h1>are you sure?</h1>
-            <Button style={{ marginLeft: "30%" }} onClick={props.handleSignOut}>
-              Yes!
-            </Button>
-            <Button style={{ marginLeft: "30%" }} onClick={handleClose}>
-              No!
-            </Button>
+            <Card>
+              <CardContent>
+                <CardHeader 
+                  title="Are you sure?" 
+                  style={{ marginBottom: "15px" }}
+                />
+                <Button
+                  style={{ marginRight: "10%", marginLeft: "10%" }}
+                  onClick={props.handleSignOut}
+                  color="primary"
+                  variant="contained"
+                >
+                  Yes
+                </Button>
+                <Button
+                  onClick={handleClose}
+                  color="primary"
+                  variant="contained"
+                >
+                  No
+                </Button>
+              </CardContent>
+            </Card>
           </Popover>
         </>
       )}

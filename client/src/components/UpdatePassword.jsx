@@ -28,7 +28,10 @@ const UpdatePassword = (props) => {
   function updateUserPassword() {
     if (password === confirmedPassword) { 
       API.updateAdmin(_id, props.currentUser)
-      .then(console.log("password successfully updated"))
+      .then(() => {
+        console.log("password successfully updated");
+        alert("password successfully updated!");
+      })
       .catch((err) => console.log("An error occured", err))
     } else
       alert("Sorry, your passwords do not match");

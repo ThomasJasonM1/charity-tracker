@@ -1,10 +1,6 @@
 import axios from "axios";
 
 export default {
-	/**************************************************
-	 * Calls to user collection in our charityTracker DB - more of these can be added, if need be.
-	 **************************************************/
-
 	// Signs in an admin
 	adminLogin: function (credentials) {
 		return axios.post("/api/user/login", credentials);
@@ -14,15 +10,6 @@ export default {
 		return axios.put("/api/user/"+ id, updatedInfo);
 	},
 
-	getAdmin: function (id) {
-		return axios.get("/api/user/" + id);
-	},
-
-	/**************************************************
-	 * Calls to charity collection in our charityTracker DB
-	 **************************************************/
-
-	// Gets a charity from th db by ein
 	getDbCharity: function (ein) {
 		return axios.get("/api/charity/" + ein);
 	},
@@ -42,25 +29,12 @@ export default {
 	deleteDbCharity: function (id) {
 		return axios.delete("/api/charity/" + id);
 	},
-
-	/**************************************************
-	 * Calls to third party charityNav API
-	 **************************************************/
-
-	// Search for charity by name - also accepts ein
+	// General charity nav search
 	charityNavSearch: function (searchTerm) {
 		return axios.get("/api/charity/nav/name/" + searchTerm);
 	},
 	// Searches for a specific charity by EIN
 	charitySearchByEIN: function (ein) {
 		return axios.get("/api/charity/nav/ein/" + ein);
-	},
-
-	/**************************************************
-	 * Calls to our DB and to the third party charityNav API - returns a combined response from both
-	 **************************************************/
-
-	charityDbAndNavSearchByEIN: function (ein) {
-		return axios.get("/api/charity/dbnav" + ein);
 	}
 };
