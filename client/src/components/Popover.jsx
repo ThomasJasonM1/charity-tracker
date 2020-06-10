@@ -3,9 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import {
   Button,
   TextField,
-  Typography,
-  Divider,
   Popover,
+  Card,
+  CardContent,
+  CardHeader
 } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import API from "../utils/API";
@@ -76,10 +77,10 @@ export default function SimplePopover(props) {
               horizontal: "center",
             }}
           >
-            <Typography className={classes.typography}>
+            <Card>
+              <CardContent>
               <form>
-                <h4>Administrator Login</h4>
-                <Divider style={{marginBottom: "15px"}}/>
+                <CardHeader title="Administrator Login"/>
                 <TextField
                   onid="standard-basic"
                   fullWidth
@@ -114,8 +115,9 @@ export default function SimplePopover(props) {
                   Login
                 </Button>
               </form>
-            </Typography>
-          </Popover>{" "}
+              </CardContent>
+            </Card>  
+          </Popover>
         </>
       ) : (
         <>
@@ -141,13 +143,29 @@ export default function SimplePopover(props) {
               horizontal: "center",
             }}
           >
-            <h1>are you sure?</h1>
-            <Button style={{ marginLeft: "30%" }} onClick={props.handleSignOut}>
-              Yes!
-            </Button>
-            <Button style={{ marginLeft: "30%" }} onClick={handleClose}>
-              No!
-            </Button>
+            <Card>
+              <CardContent>
+                <CardHeader 
+                  title="Are you sure?" 
+                  style={{ marginBottom: "15px" }}
+                />
+                <Button
+                  style={{ marginRight: "10%", marginLeft: "10%" }}
+                  onClick={props.handleSignOut}
+                  color="primary"
+                  variant="contained"
+                >
+                  Yes
+                </Button>
+                <Button
+                  onClick={handleClose}
+                  color="primary"
+                  variant="contained"
+                >
+                  No
+                </Button>
+              </CardContent>
+            </Card>
           </Popover>
         </>
       )}
