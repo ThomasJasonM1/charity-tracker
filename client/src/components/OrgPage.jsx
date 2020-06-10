@@ -166,8 +166,7 @@ function OrgPage() {
 				defaultValue={org.tagLine}
 				// onChange={handleChange}
 			/>
-			<br />
-			<br />
+			<br /><br />
 
 			<h5>Mission Statement:</h5>
 			<textarea
