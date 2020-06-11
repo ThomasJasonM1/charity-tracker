@@ -17,6 +17,10 @@ const SearchDetails = (props) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      paddingTop: "7em",
+    },
+    divStyles: {
+      flexGrow: 1,
     },
     addBtn: {
       padding: theme.spacing(2),
@@ -27,10 +31,9 @@ const SearchDetails = (props) => {
   }));
   const classes = useStyles();
   const history = useHistory();
-  console.log("Made it HERE");
   return (
     <Container>
-      <div className={classes.root}>
+      <div className={!props.isSignedIn ? classes.root : classes.divStyles}>
         <img
           className="img-fluid causeImage"
           src={charityData.cause && charityData.cause.image}
