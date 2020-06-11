@@ -1,111 +1,115 @@
+#root {
+	overflow: hidden;
+}
+
 .wrapper {
-  justify-content: center;
-  padding-left: 40px;
+	justify-content: center;
+	padding-left: 40px;
 }
 
 #ratingImage {
-  margin-left: 15px;
-  padding-bottom: 9px;
+	margin-left: 15px;
+	padding-bottom: 9px;
 }
 
 #webAddress {
-  width: 300px;
+	width: 300px;
 }
 
 #street {
-  margin-right: 25px;
+	margin-right: 25px;
 }
 
 #city {
-  width: 125px;
-  margin-right: 25px;
+	width: 125px;
+	margin-right: 25px;
 }
 
 #state {
-  width: 60px;
+	width: 60px;
 }
 
 #zipcode {
-  width: 70px;
+	width: 70px;
 }
 
 #phone {
-  margin-top: 21px;
-  margin-right: 5px;
+	margin-top: 21px;
+	margin-right: 5px;
 }
 
 .causeImage {
-  float: left;
-  margin-right: 15px;
+	float: left;
+	margin-right: 15px;
 }
 
 #rating {
-  margin-left: 100px;
+	margin-left: 100px;
 }
 
 .contactForm {
-  color: black;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom-color: #9e9e9e;
-  background: none;
-  font-size: 16px;
-  border-radius: 0;
-  width: 300px;
+	color: black;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom-color: #9e9e9e;
+	background: none;
+	font-size: 16px;
+	border-radius: 0;
+	width: 300px;
 }
 
 .contactForm2 {
-  color: black;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom-color: #9e9e9e;
-  background: none;
-  font-size: 16px;
-  border-radius: 0;
-  width: 300px;
-  margin-left: -100px;
+	color: black;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom-color: #9e9e9e;
+	background: none;
+	font-size: 16px;
+	border-radius: 0;
+	width: 300px;
+	margin-left: -100px;
 }
 
 .contactForm:hover {
-  border-bottom-color: black;
-  border-bottom-width: 1.8px;
+	border-bottom-color: black;
+	border-bottom-width: 1.8px;
 }
 
 .contactForm2:hover {
-  border-bottom-color: black;
-  border-bottom-width: 1.8px;
+	border-bottom-color: black;
+	border-bottom-width: 1.8px;
 }
 
 .contactForm:focus {
-  outline: none;
-  color: black;
-  border-left: none;
-  border-right: none;
-  background: none;
-  border-bottom-color: #5362bc;
+	outline: none;
+	color: black;
+	border-left: none;
+	border-right: none;
+	background: none;
+	border-bottom-color: #5362bc;
 }
 
 .contactForm2:focus {
-  outline: none;
-  color: black;
-  border-left: none;
-  border-right: none;
-  background: none;
-  border-bottom-color: #5362bc;
+	outline: none;
+	color: black;
+	border-left: none;
+	border-right: none;
+	background: none;
+	border-bottom-color: #5362bc;
 }
 .contactLabel {
-  font-size: 12px;
-  color: #7b848d;
+	font-size: 12px;
+	color: #7b848d;
 }
 
 .contactLabel2 {
-  font-size: 12px;
-  color: #7b848d;
-  margin-left: -100px;
+	font-size: 12px;
+	color: #7b848d;
+	margin-left: -100px;
 }
 
 .orgContact {
-  margin-left: -20px;
+	margin-left: -20px;
 }

@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { Button, Container, Fab, makeStyles } from "@material-ui/core";
+import {
+  Button,
+	Container,
+	Fab,
+	makeStyles,
+	Backdrop,
+	CircularProgress
+} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import API from "../utils/API.js";
 import TextField from '@material-ui/core/TextField';
@@ -43,6 +50,10 @@ const SearchDetails = (props) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      paddingTop: "7em",
+    },
+    divStyles: {
+      flexGrow: 1,
     },
     addBtn: {
       padding: theme.spacing(2),
@@ -50,13 +61,25 @@ const SearchDetails = (props) => {
       marginLeft: "20px",
       marginRight: "20px",
     },
+    backdrop: {	
+			zIndex: theme.zIndex.drawer + 1,	
+			color: "#fff",
+		},
   }));
   const classes = useStyles();
   const history = useHistory();
+    
+  if (!charityData.charityName) {	
+		return (	
+			<Backdrop className={classes.backdrop} open={true}>	
+				<CircularProgress color="inherit" />	
+			</Backdrop>	
+		);	
+	}
   
   return (
     <Container>
-      <div className={classes.root}>
+      <div className={!props.isSignedIn ? classes.root : classes.divStyles}>
         <img
           className="img-fluid causeImage"
           src={charityData.cause && charityData.cause.image}
