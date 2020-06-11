@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import {
+  Button,
 	Container,
 	Fab,
 	makeStyles,
@@ -9,15 +10,41 @@ import {
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import API from "../utils/API.js";
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
 const SearchDetails = (props) => {
   const { ein } = useParams();
-  console.log("ein", ein);
-  console.log("props", props);
   const [charityData, setCharityData] = useState({});
+  const [contactData, setContactData] = useState({});
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleSubscribe = () => {
+    API.signUpToVolunteer(contactData);
+    handleClose();
+  }
+
+  const handleInputChange = (event) => {
+    let { name, value } = event.target;
+		setContactData({ ...contactData, [name]: name === 'phone' ? value.replace(/\D/g, '').trim() : value .trim()});
+	}
+
   useEffect(() => {
     API.charitySearchByEIN(ein).then((details) => {
-      console.log(details);
       setCharityData(details.data);
+      setContactData({...contactData, orgName: details.data.charityName.trim()})
     });
   }, {});
   const useStyles = makeStyles((theme) => ({
@@ -49,7 +76,7 @@ const SearchDetails = (props) => {
 			</Backdrop>	
 		);	
 	}
-    
+  
   return (
     <Container>
       <div className={!props.isSignedIn ? classes.root : classes.divStyles}>
@@ -127,6 +154,52 @@ const SearchDetails = (props) => {
       </h5>
       <br />
       <br />
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Sign Up to Volunteer
+      </Button>
+      <div>
+      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            We will use your phone number to send you text messages about upcoming volunteer opportunities.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            name="firstName"
+            label="First Name"
+            type="name"
+            fullWidth
+            onChange={handleInputChange}
+          />
+          <TextField
+            margin="dense"
+            name="lastName"
+            label="Last Name"
+            type="name"
+            fullWidth
+            onChange={handleInputChange}
+          />
+          <TextField
+            margin="dense"
+            name="phone"
+            label="Phone Number"
+            type="phone"
+            fullWidth
+            onChange={handleInputChange}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleSubscribe} color="primary">
+            Subscribe
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
     </Container>
   );
 };

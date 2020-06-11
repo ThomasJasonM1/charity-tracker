@@ -18,7 +18,7 @@
 		"prop-types": "^15.7.2",
 		"react-chartjs-2": "^2.9.0",
 		"react-text-mask": "^5.4.3",
-		"request-promise": "^4.2.5"
+		"request": "^2.88.2"
 	},
 	"devDependencies": {
 		"concurrently": "^4.1.0",

@@ -36,5 +36,8 @@ export default {
 	// Searches for a specific charity by EIN
 	charitySearchByEIN: function (ein) {
 		return axios.get("/api/charity/nav/ein/" + ein);
+	},
+	signUpToVolunteer: function (contact) {
+		return axios.post("/api/user/volunteer", contact);
 	}
 };
