@@ -9,6 +9,8 @@ import {
 	Fab,
 	makeStyles,
 	Switch,
+	Backdrop,
+	CircularProgress,
 	Button
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
@@ -25,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
 		textAlign: "center",
 		marginLeft: "20px",
 		marginRight: "20px"
+	},
+	backdrop: {
+		zIndex: theme.zIndex.drawer + 1,
+		color: "#fff"
 	}
 }));
 
@@ -61,9 +67,11 @@ function OrgPage() {
 	}
 
 	const handleChange = (event) => {
-    setCharityData({ ...charityData, [event.target.name]: event.target.checked });
+		setCharityData({
+			...charityData,
+			[event.target.name]: event.target.checked
+		});
 	};
-	console.log(charityData);
 
 	const handleAddOrg = (event) => {
 		event.preventDefault();
@@ -105,6 +113,7 @@ function OrgPage() {
 				phone: charityData.phone
 			},
 			howWeCanHelp: charityData.howWeCanHelp,
+			charityName: org.charityName,
 			events: charityData.events
 		})
 			.then(() => {
@@ -112,6 +121,14 @@ function OrgPage() {
 			})
 			.catch((err) => console.log(err));
 	};
+
+	if (!org) {
+		return (
+			<Backdrop className={classes.backdrop} open={true}>
+				<CircularProgress color="inherit" />
+			</Backdrop>
+		);
+	}
 
 	return (
 		<Container>
@@ -172,7 +189,8 @@ function OrgPage() {
 				defaultValue={org.tagLine}
 				// onChange={handleChange}
 			/>
-			<br /><br />
+			<br />
+			<br />
 
 			<h5>Mission Statement:</h5>
 			<textarea
@@ -196,17 +214,16 @@ function OrgPage() {
 						row
 						aria-label="position"
 						name="position"
-						defaultValue="start"						
+						defaultValue="start"
 					>
 						<FormControlLabel
 							name="isDonationPartner"
-							control={<Switch color="primary"  />}
+							control={<Switch color="primary" />}
 							// label="Yes"
 							labelPlacement="start"
 							onChange={handleChange}
 							checked={charityData.isDonationPartner || false}
 						/>
-
 					</RadioGroup>
 				</FormControl>
 				<br />
@@ -227,13 +244,12 @@ function OrgPage() {
 					>
 						<FormControlLabel
 							name="isVolunteerPartner"
-							control={<Switch color="primary"  />}
+							control={<Switch color="primary" />}
 							// label="Yes"
 							labelPlacement="start"
 							onChange={handleChange}
 							checked={charityData.isVolunteerPartner || false}
 						/>
-
 					</RadioGroup>
 				</FormControl>
 				<br />

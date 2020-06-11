@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { Container, Fab, makeStyles } from "@material-ui/core";
+import {
+	Container,
+	Fab,
+	makeStyles,
+	Backdrop,
+	CircularProgress
+} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import API from "../utils/API.js";
 const SearchDetails = (props) => {
@@ -28,9 +34,22 @@ const SearchDetails = (props) => {
       marginLeft: "20px",
       marginRight: "20px",
     },
+    backdrop: {	
+			zIndex: theme.zIndex.drawer + 1,	
+			color: "#fff",
+		},
   }));
   const classes = useStyles();
   const history = useHistory();
+    
+  if (!charityData.charityName) {	
+		return (	
+			<Backdrop className={classes.backdrop} open={true}>	
+				<CircularProgress color="inherit" />	
+			</Backdrop>	
+		);	
+	}
+    
   return (
     <Container>
       <div className={!props.isSignedIn ? classes.root : classes.divStyles}>
