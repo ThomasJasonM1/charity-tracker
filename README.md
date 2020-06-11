@@ -23,13 +23,34 @@ So that my employees can more readily find, connect with, and contribute to char
 
 <a href="https://github.com/ThomasJasonM1" target="blank">Thomas Jason</a>
 
+- Database creation and management
+- HTML and API routes
+- Node/Express setup
+
 <a href="https://github.com/nwuerz" target="blank">Nick Wuerz</a>
+
+- User authentication
+- Login functionality
+- Product layout and design
 
 <a href="https://github.com/V-Earl" target="blank">Valerie Earl</a>
 
+- Search display
+- Non-admin user views/display
+- Final presentation
+
 <a href="https://github.com/tldav" target="blank">Thomas Davis</a>
 
+- Database creation and management
+- Frontend/Backend connection
+- HTML and API routes
+- Graphics
+
 <a href="https://github.com/kayla8693" target="blank">Kayla Gordon</a>
+
+- API handling
+- Database connection
+- Organization page display/functionality
 
 ## Technologies
 <p id='technologies'></p>
@@ -47,8 +68,9 @@ So that my employees can more readily find, connect with, and contribute to char
 ## Usage
 <p id='usage'></p>
 
+https://charity-wowness.herokuapp.com/
 
-
+Navigate to the site above. Charity organizations already saved in the database will appear on the main page. Click on the "View" link to see further details of any specific charity. An admin can login, edit their profile inofrmation, and search for and add new charities to the database. The admin can also add/edit point of contact information, whether or not the company matches donations and partners with the organization for volunteering, and the best ways to help. 
 
 ## License
 <p id='license'></p>
