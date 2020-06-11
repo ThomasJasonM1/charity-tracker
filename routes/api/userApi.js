@@ -53,7 +53,7 @@ router.route("/volunteer")
         "BroadcastType": "SMS",
         "StartDate": "",
         "CheckCallingWindow": false,
-        "TextMessage": `You have successfully signed up for alerts to volunteer alerts from ${contactInfo.orgName}!`,
+        "TextMessage": `You have successfully signed up for volunteer alerts from ${contactInfo.orgName}!`,
         "TextNumberID": 38508,
         "Contacts":
           [
