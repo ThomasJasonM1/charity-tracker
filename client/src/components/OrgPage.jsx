@@ -57,7 +57,6 @@ function OrgPage() {
 					.catch((err) => console.log(err));
 			};
 			getResponse();
-			// replaceText();
 		}
 	}, [org, ein]);
 
@@ -199,7 +198,7 @@ function OrgPage() {
 				cols="70"
 				className="form-control"
 				name="text"
-				defaultValue={org.mission}
+				defaultValue={org.mission && org.mission.replace(/<br>/g, '')}
 				// onChange={handleChange}
 			/>
 			<br />
