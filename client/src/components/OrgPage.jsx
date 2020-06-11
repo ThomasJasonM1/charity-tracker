@@ -8,7 +8,8 @@ import {
 	RadioGroup,
 	Fab,
 	makeStyles,
-	Switch
+	Switch,
+	Button
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import EditIcon from "@material-ui/icons/Edit";
@@ -50,6 +51,7 @@ function OrgPage() {
 					.catch((err) => console.log(err));
 			};
 			getResponse();
+			// replaceText();
 		}
 	}, [org, ein]);
 
