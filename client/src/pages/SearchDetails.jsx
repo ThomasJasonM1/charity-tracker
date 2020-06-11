@@ -31,20 +31,20 @@ const SearchDetails = (props) => {
     setOpen(false);
   };
 
-  const handleSubscribe = (e) => {
-    setContactData({...contactData, orgName: charityData.charityName})
+  const handleSubscribe = () => {
     API.signUpToVolunteer(contactData);
     handleClose();
   }
 
   const handleInputChange = (event) => {
     let { name, value } = event.target;
-		setContactData({ ...contactData, [name]: name == 'phone' ? value.replace(/\D/g, '') : value });
+		setContactData({ ...contactData, [name]: name === 'phone' ? value.replace(/\D/g, '').trim() : value .trim()});
 	}
 
   useEffect(() => {
     API.charitySearchByEIN(ein).then((details) => {
       setCharityData(details.data);
+      setContactData({...contactData, orgName: details.data.charityName.trim()})
     });
   }, {});
   const useStyles = makeStyles((theme) => ({
