@@ -135,7 +135,7 @@ const SearchDetails = (props) => {
         cols="70"
         className="form-control"
         name="text"
-        defaultValue={charityData.mission}
+        defaultValue={charityData.mission && charityData.mission.replace(/<br>/g, '')}
         disabled={true}
       />
       <br />
