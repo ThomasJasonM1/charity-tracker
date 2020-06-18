@@ -70,7 +70,11 @@ So that my employees can more readily find, connect with, and contribute to char
 
 https://charity-wowness.herokuapp.com/
 
-Navigate to the site above. Charity organizations already saved in the database will appear on the main page. Click on the "View" link to see further details of any specific charity. An admin can login, edit their profile inofrmation, and search for and add new charities to the database. The admin can also add/edit point of contact information, whether or not the company matches donations and partners with the organization for volunteering, and the best ways to help. 
+Login Info
+- Username: test
+- Password: test
+
+Navigate to the site above. Charity organizations already saved in the database will appear on the main page. Click on the "View" link to see further details of any specific charity. Using the login information above, a user can gain full access to the site, along with the ability to edit their profile information and search for and add new charities to the database. The admin can also add/edit point of contact information, whether or not the company matches donations and partners with the organization for volunteering, and the best ways to help. 
 
 ## License
 <p id='license'></p>
