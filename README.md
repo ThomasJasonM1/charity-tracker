@@ -63,7 +63,7 @@ So that my employees can more readily find, connect with, and contribute to char
 - bcrypt
 - Framer Motion
 - Material-UI
-- React-Bootstrap
+- React Bootstrap
 
 ## Usage
 <p id='usage'></p>
