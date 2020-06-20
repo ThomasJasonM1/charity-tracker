@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import Home from "./pages/Home";
@@ -20,6 +20,7 @@ function App() {
   function handleSignOut(userDetails) {
     console.log("Logging out user");
     setCurrentUser({ ...userDetails, isSignedIn: false });
+    return <Redirect to="/"/>
   }
   function handleInputChange(event) {
     const { value, name } = event.target;

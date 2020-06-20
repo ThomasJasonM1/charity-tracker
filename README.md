@@ -30,7 +30,7 @@ So that my employees can more readily find, connect with, and contribute to char
 <a href="https://github.com/nwuerz" target="blank">Nick Wuerz</a>
 
 - User authentication
-- Login functionality
+- Admin profile functionality
 - Product layout and design
 
 <a href="https://github.com/V-Earl" target="blank">Valerie Earl</a>
@@ -75,6 +75,22 @@ Login Info
 - Password: test
 
 Navigate to the site above. Charity organizations already saved in the database will appear on the main page. Click on the "View" link to see further details of any specific charity. Using the login information above, a user can gain full access to the site, along with the ability to edit their profile information and search for and add new charities to the database. The admin can also add/edit point of contact information, whether or not the company matches donations and partners with the organization for volunteering, and the best ways to help. 
+
+## Adding Admin to Database
+
+To add an admin user to the database, make a post request to https://charity-wowness.herokuapp.com/api/user/
+
+```
+{
+	"firstName": <FIRST NAME>,
+	"lastName": <LAST NAME>,
+	"email": <EMAIL>,
+	"phone": <PHONE #>,
+	"image": <IMAGE URL>,
+	"username": <USERNAME>,
+	"password": <PASSWORD>
+}
+```
 
 ## License
 <p id='license'></p>
