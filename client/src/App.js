@@ -4,10 +4,13 @@ import "./App.css";
 import Dashboard from "./components/Dashboard";
 import Home from "./pages/Home";
 import CharitySearch from "./pages/CharitySearch";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
+import LinearProgress from '@material-ui/core/LinearProgress';
 import Organization from "./pages/Organization";
 import Profile from "./pages/Profile";
 import SearchDetails from "./pages/SearchDetails";
+
+
 function App() {
   const [currentUser, setCurrentUser] = useState({
     isSignedIn: false,
@@ -30,13 +33,15 @@ function App() {
   if (!currentUser.isSignedIn) {
     return (
       <>
-        <Navbar
+        {/* <Navbar
           handleUserLogin={handleUserLogin}
           isSignedIn={currentUser.isSignedIn}
-        />
+        /> */}
         <Switch>
           <Route exact path={["/", "/home"]}>
-            <Home isSignedIn={currentUser.isSignedIn} />
+            {/* <Home isSignedIn={currentUser.isSignedIn} /> */}
+            <h5 style={{ marginTop: "25%", textAlign: "center" }}>Website temporarily down for maintenance.</h5>
+            <LinearProgress color="secondary" />
           </Route>
           <Route exact path={["/search-details/:ein"]}>
             <SearchDetails isSignedIn={false} />
