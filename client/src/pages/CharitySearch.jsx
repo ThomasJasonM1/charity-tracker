@@ -31,7 +31,6 @@ const CharitySearch = () => {
 		API.charityNavSearch(searchTerm)
 			.then((response) => {
 				setCharityList(response.data);
-				console.log(response.data);
 			})
 			.catch((err) => console.log(err));
 	};
