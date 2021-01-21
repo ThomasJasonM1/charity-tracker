@@ -24,7 +24,6 @@ const useStyles = makeStyles({
 const SearchCard = (props) => {
 	const classes = useStyles();
 	const { charityName, image, irsClassification, ein } = props.charity;
-	console.log(props.variant);
 
 	return (
 		<Grid item key={props.charity.ein} xs={12} sm={6} md={4}>

@@ -98,7 +98,6 @@ function OrgPage() {
 
 	const handleEditOrg = (event) => {
 		event.preventDefault();
-		console.log(charityData);
 
 		const id = charityData.ein;
 		API.updateDbCharity(id, {

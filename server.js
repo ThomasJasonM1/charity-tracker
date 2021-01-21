@@ -8,8 +8,8 @@ const PORT = process.env.PORT || 3001;
 
 // Define middleware here
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://localhost/3000');
-  next();
+	res.header("Access-Control-Allow-Origin", "https://localhost/3000");
+	next();
 });
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
@@ -22,9 +22,14 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://localhost/charityTracker"
-);
+mongoose
+	.connect(process.env.MONGODB_URI || `mongodb://localhost/${DB_NAME}`, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useFindAndModify: false
+	})
+	.then(() => console.log("Database Connected Successfully"))
+	.catch((err) => console.log(err));
 
 // Start the API server
 app.listen(PORT, function () {

@@ -11,7 +11,6 @@ module.exports = {
 		Charity.findOne({ ein: req.params.ein })
 			.then((dbModel) => {
 				if (res) return res.json(dbModel);
-				console.log(dbModel);
 				return dbModel;
 			})
 			.catch((err) => res.status(422).json(err));

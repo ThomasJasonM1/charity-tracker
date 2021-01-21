@@ -29,7 +29,6 @@ class Home extends Component {
 	async componentDidMount() {
 		const response = await API.getDbCharities();
 		this.setState({ dbCharities: response.data });
-		console.log(response.data);
 	}
 
 	render() {
@@ -61,7 +60,6 @@ class Home extends Component {
 											about: charity.missionStatement,
 											showEdit: true
 										};
-										console.log(charityObj);
 										return (
 											<CharityCard
 												charity={charityObj}
